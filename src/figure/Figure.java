@@ -1,4 +1,4 @@
 package figure;
 
-public class Figure {
+public abstract class Figure {
 }
