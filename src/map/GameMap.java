@@ -4,30 +4,18 @@ import exceptions.MapDimensionsException;
 import utils.Pair;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.security.KeyPair;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
 
 public class GameMap {
-    public static final String FILES_PATH = "files/";
+    public static final String MAPS_PATH = "database/map/";
+    public static final int MIN_DIMENSIONS = 7;
+    public static final int MAX_DIMENSIONS = 10;
     private Integer dimensions;
     private Object[][] map;
     private int startingPos;
-    ArrayList<Pair<Integer,Integer>> path = new ArrayList();
-
-
-    public Integer getDimensions() {
-        return dimensions;
-    }
-
-    public Object[][] getMap() {
-        return map;
-    }
+    private ArrayList<Pair<Integer,Integer>> path = new ArrayList();
 
     public GameMap() { }
     public GameMap(int dimensions) throws MapDimensionsException, IOException {
@@ -39,6 +27,21 @@ public class GameMap {
         loadPath();
     }
 
+    public Integer getDimensions() {
+        return dimensions;
+    }
+    public Object[][] getMap() {
+        return map;
+    }
+
+    public int getStartingPos() {
+        return startingPos;
+    }
+
+    public ArrayList<Pair<Integer, Integer>> getPath() {
+        return path;
+    }
+
     private void findStartingPosition() {
         if (dimensions % 2 == 0)
             startingPos = dimensions / 2;
@@ -47,7 +50,7 @@ public class GameMap {
     }
 
     private void loadPath() throws IOException {
-        BufferedReader in = new BufferedReader(new FileReader(FILES_PATH + dimensions + "x" + dimensions + "map.txt"));
+        BufferedReader in = new BufferedReader(new FileReader(MAPS_PATH + dimensions + "x" + dimensions + "map.txt"));
         String s = in.readLine();
         String[] inputs = s.split(",");
         for (String field : inputs) {

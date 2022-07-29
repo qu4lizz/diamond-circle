@@ -21,7 +21,7 @@ public class Pair<U, V>
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Utils.Pair<?, ?> pair = (Utils.Pair<?, ?>) o;
+        Pair<?, ?> pair = (Pair<?, ?>) o;
 
         if (!first.equals(pair.first)) {
             return false;
