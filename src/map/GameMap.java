@@ -12,10 +12,10 @@ public class GameMap {
     public static final String MAPS_PATH = "database/map/";
     public static final int MIN_DIMENSIONS = 7;
     public static final int MAX_DIMENSIONS = 10;
-    private Integer dimensions;
-    private Object[][] map;
-    private int startingPos;
-    private ArrayList<Pair<Integer,Integer>> path = new ArrayList();
+    public static int dimensions;
+    public static Object[][] map;
+    public static int startingPos;
+    public static ArrayList<Pair<Integer,Integer>> path = new ArrayList();
 
     public GameMap() { }
     public GameMap(int dimensions) throws MapDimensionsException, IOException {
@@ -27,29 +27,14 @@ public class GameMap {
         loadPath();
     }
 
-    public Integer getDimensions() {
-        return dimensions;
-    }
-    public Object[][] getMap() {
-        return map;
-    }
-
-    public int getStartingPos() {
-        return startingPos;
-    }
-
-    public ArrayList<Pair<Integer, Integer>> getPath() {
-        return path;
-    }
-
-    private void findStartingPosition() {
+    private static void findStartingPosition() {
         if (dimensions % 2 == 0)
             startingPos = dimensions / 2;
         else
             startingPos = (int) Math.ceil(dimensions / 2);
     }
 
-    private void loadPath() throws IOException {
+    private static void loadPath() throws IOException {
         BufferedReader in = new BufferedReader(new FileReader(MAPS_PATH + dimensions + "x" + dimensions + "map.txt"));
         String s = in.readLine();
         String[] inputs = s.split(",");
@@ -57,5 +42,17 @@ public class GameMap {
             String[] coordinates = field.split(" ");
             path.add(new Pair(Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])));
         }
+    }
+
+    public void toStr() {
+        for (int i = 0; i < map.length; i++) {
+            var row = map[i];
+            for (int j = 0; j < row.length; j++) {
+                var elem = map[j][i];
+                System.out.print("[x:" + j + "][y: " + i + "]" + elem + "  ");
+            }
+            System.out.println();
+        }
+        System.out.println("\n");
     }
 }

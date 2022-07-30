@@ -1,5 +1,6 @@
 package card;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -10,7 +11,7 @@ public class Deck {
     public static final int NUMBER_OF_NUMBERED_CARDS = 10;
     private LinkedList<Card> deck = new LinkedList<>();
 
-    public Deck() {
+    public Deck() throws IOException {
         int num1, num2, num3, num4, specCardNum;
         num1 = num2 = num3 = num4 = NUMBER_OF_NUMBERED_CARDS;
         specCardNum = SIZE - NUMBER_OF_NUMBERED_CARDS * 4;
@@ -29,5 +30,9 @@ public class Deck {
         for (int i = 0; i < NUMBER_OF_NUMBERED_CARDS; i++) {
             deck.add(new NumberCard(value));
         }
+    }
+
+    public LinkedList<Card> getDeck() {
+        return deck;
     }
 }

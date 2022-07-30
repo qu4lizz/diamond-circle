@@ -10,11 +10,14 @@ public class SpecialCard extends Card {
     private static final String NUMBER_PATH = "database/numberOfMaximumHoles.txt";
     private static int numberOfHoles;
 
+    public SpecialCard() throws IOException { setMaxNumberOfHoles();}
+
+
     public static int getRandomNumberOfHoles() {
         Random rand = new Random();
         return rand.nextInt(numberOfHoles);
     }
-    public static void setNumberOfHoles() throws IOException {
+    public static void setMaxNumberOfHoles() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(NUMBER_PATH));
         String s = br.readLine();
         numberOfHoles = Integer.parseInt(s);

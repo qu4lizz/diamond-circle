@@ -15,4 +15,24 @@ public class Player {
         this.name = name;
         this.figures = figures;
     }
+
+    public boolean isFinished() {
+        for (var figure : figures) {
+            if (figure.getMovementState() == 0)
+                return false;
+        }
+        return true;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public PlayerFigure[] getFigures() {
+        return figures;
+    }
 }

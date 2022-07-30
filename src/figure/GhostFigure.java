@@ -12,11 +12,11 @@ public class GhostFigure extends Figure {
     private final int MAX_DIAMONDS;
     private boolean diamondsAreOnMap = false;
     private HashSet<Pair<Integer, Integer>> diamondPositions;
-    public GhostFigure(int dimensions) {
-        MAX_DIAMONDS = dimensions;
+    public GhostFigure() {
+        MAX_DIAMONDS = GameMap.dimensions;
     }
 
-    public void addDiamonds(GameMap map) {
+    public void addDiamonds() {
         if (diamondsAreOnMap)
             removeDiamonds();
         else
@@ -25,10 +25,12 @@ public class GhostFigure extends Figure {
         Random rand = new Random();
         int numOfDiamonds = rand.nextInt((MAX_DIAMONDS - MIN_DIAMONDS) + 1) + MIN_DIAMONDS;
 
-        for (int i = 0; i < numOfDiamonds;) {
-            var elem = map.getPath().get(rand.nextInt(map.getPath().size()));
-            diamondPositions.add(elem);
-            map.getMap()[elem.first][elem.second] = new Diamond();
+        while (diamondPositions.size() != numOfDiamonds){
+            var elem = GameMap.path.get(rand.nextInt(GameMap.path.size()));
+            if (!diamondPositions.contains(elem)) {
+                diamondPositions.add(elem);
+                GameMap.map[elem.first][elem.second] = new Diamond();
+            }
         }
     }
 

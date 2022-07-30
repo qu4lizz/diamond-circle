@@ -1,15 +1,13 @@
-import card.Deck;
+import card.*;
 import exceptions.MapDimensionsException;
 import figure.*;
 import map.GameMap;
 import player.Player;
+import utils.Pair;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Random;
+import java.util.*;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
@@ -23,8 +21,11 @@ public class Simulation {
     private int numOfPlayers;
     private int dimensions;
     private int currSimulation;
-    private static File[] simulations;
+    private File[] simulations;
     private LinkedList<Player> players;
+    private GhostFigure ghost;
+    public static Deck deck;
+    public static GameMap map;
     public static Handler handler;
 
     {
@@ -48,7 +49,6 @@ public class Simulation {
 
         loadSimulations();
         currSimulation = simulations.length + 1;
-        GameMap map;
         try {
              map = new GameMap(dimensions);
         } catch (MapDimensionsException e) {
@@ -56,16 +56,77 @@ public class Simulation {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        initializePlayers(map.getStartingPos());
-        Deck deck = new Deck();
-        GhostFigure ghost = new GhostFigure(dimensions);
+        initializePlayers();
+        try {
+            deck = new Deck();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        ghost = new GhostFigure();
+        startGame();
     }
+
+    private void startGame() {
+        LinkedList<Player> playersTmp = (LinkedList<Player>) players.clone();
+        Object finalField = GameMap.path.get(GameMap.path.size() - 1);
+        while (!playersTmp.isEmpty()) {
+            for (int i = 0; i < playersTmp.size(); i++) {
+                Card currCard = deck.getDeck().get(0);
+                deck.getDeck().removeFirst();
+                deck.getDeck().addLast(currCard);
+                if (currCard instanceof NumberCard) {
+                    int cardVal = ((NumberCard) currCard).getValue();
+                    for (var figure : players.get(i).getFigures()) {
+                        if (figure.getMovementState() == 0) {
+                            try {
+                                figure.move(cardVal);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                            break;
+                        }
+                    }
+                }
+                else {
+                    var holes = generateHoles();
+                    // TODO: SHOW HOLES ON GUI
+                    for (var hole : holes) {
+                        Object obj = GameMap.map[hole.first][hole.second];
+                        if (obj instanceof WalkingFigure || obj instanceof RunningFigure) {
+                            PlayerFigure figure = (PlayerFigure) obj;
+                            figure.setMovementState(2);
+                            GameMap.map[hole.first][hole.second] = null;
+                        }
+                    }
+                }
+                if (players.get(i).isFinished())
+                    playersTmp.remove(players.get(i));
+                map.toStr();
+            }
+        }
+    }
+
+    private HashSet<Pair<Integer, Integer>> generateHoles() {
+        HashSet<Pair<Integer, Integer>> res = new HashSet<>();
+        int numOfHoles = SpecialCard.getRandomNumberOfHoles();
+        Random rand = new Random();
+        for (int i = 0; i < numOfHoles;) {
+            int index = rand.nextInt(GameMap.path.size());
+            var obj = GameMap.path.get(index);
+            if (!res.contains(obj)) {
+                res.add(obj);
+                i++;
+            }
+        }
+        return res;
+    }
+
     private void loadSimulations() {
         File path = new File(SIMULATIONS_PATH);
         simulations = path.listFiles();
     }
 
-    private void initializePlayers(int startingPosition) {
+    private void initializePlayers() {
         players = new LinkedList<>();
         PlayerFigure.Color[] tmp = PlayerFigure.Color.values();
         LinkedList<PlayerFigure.Color> colors = new LinkedList<>();
@@ -82,15 +143,14 @@ public class Simulation {
             for (int j = 0; j < Player.NUM_OF_FIGURES; j++) {
                 switch (rand.nextInt(3)) {
                     case 0: // walking
-                        figures[j] = new WalkingFigure(startingPosition, playerColor);
+                        figures[j] = new WalkingFigure(playerColor, j + 1);
                         break;
                     case 1: // running
-                        figures[j] = new RunningFigure(startingPosition, playerColor);
+                        figures[j] = new RunningFigure(playerColor, j + 1);
                         break;
                     case 2: // flying
-                        figures[j] = new FlyingFigure(startingPosition, playerColor);
+                        figures[j] = new FlyingFigure(playerColor, j + 1);
                         break;
-
                 }
             }
 

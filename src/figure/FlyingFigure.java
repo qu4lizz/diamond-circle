@@ -1,7 +1,11 @@
 package figure;
 
 public class FlyingFigure extends PlayerFigure implements FlyingInterface {
-    public FlyingFigure(int xPos, String color) {
-        super(xPos, color);
+    public FlyingFigure(String color, int id) {
+        super(color, id);
+    }
+
+    public String info(int dim) {
+        return infoUtil(dim, "Flying");
     }
 }
