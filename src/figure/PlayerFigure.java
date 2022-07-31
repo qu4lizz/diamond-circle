@@ -63,7 +63,7 @@ public abstract class PlayerFigure extends Figure {
         int size = getPath().size();
         for (int i = 0; i < size; i++) {
             var pos = getPath().get(i);
-            int field = Utils.calculateNumberField(pos.first.intValue(), pos.second.intValue(), dim);
+            int field = Utils.calculateNumberField(pos.second.intValue(), pos.first.intValue(), dim);
             str.append(field);
             if (i != size - 1)
                 str.append("-");
@@ -82,16 +82,16 @@ public abstract class PlayerFigure extends Figure {
         int moveVal = cardValue * step;
         if (path.isEmpty()) {
             path.add(GameMap.path.get(0));
-            GameMap.map[path.get(path.size() - 1).first][path.get(path.size() - 1).first] = this;
+            GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = this;
         }
         for (int i = 0; i < moveVal; i++) {
             Thread.sleep(timeForStep);
-            GameMap.map[path.get(path.size() - 1).first][path.get(path.size() - 1).first] = null;
+            GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = null;
             moveOneStep();
             Object objectOnField = null;
             while (true && movementState != 1) {
                 var fieldToStep = getCurrentField();
-                objectOnField = GameMap.map[fieldToStep.first][fieldToStep.second];
+                objectOnField = GameMap.map[fieldToStep.second][fieldToStep.first];
                 if (objectOnField instanceof PlayerFigure) {
                     moveOneStep();
                     i++;
@@ -99,16 +99,16 @@ public abstract class PlayerFigure extends Figure {
                 else break;
             }
             if (movementState == 1) {
-                GameMap.map[getCurrentField().first][getCurrentField().second] = this;
+                GameMap.map[getCurrentField().second][getCurrentField().first] = this;
                 Thread.sleep(timeForStep);
-                GameMap.map[getCurrentField().first][getCurrentField().second] = null;
+                GameMap.map[getCurrentField().second][getCurrentField().first] = null;
                 break;
             }
             if (objectOnField instanceof Diamond)
                 diamondBonus += ((Diamond) objectOnField).getValue();
             if (diamondBonus != 0) // if diamond appears on field that has figure on it
                 moveVal += diamondBonus * step;
-            GameMap.map[getCurrentField().first][getCurrentField().second] = this;
+            GameMap.map[getCurrentField().second][getCurrentField().first] = this;
         }
     }
     private void moveOneStep() {
@@ -116,7 +116,9 @@ public abstract class PlayerFigure extends Figure {
         if (GameMap.path.size() == path.size())
             movementState = 1;
     }
-
+    public String toString() {
+        return id + "(" + color + ")-";
+    }
     private Pair<Integer, Integer> getCurrentField() {
         return path.get(path.size() - 1);
     }

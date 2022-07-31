@@ -11,5 +11,7 @@ public class WalkingFigure extends PlayerFigure implements WalkingInterface {
         return infoUtil(dim, "Walking");
     }
 
-
+    public String toString() {
+        return super.toString() + "walk";
+    }
 }

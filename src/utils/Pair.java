@@ -2,8 +2,8 @@ package utils;
 
 public class Pair<U, V>
 {
-    public final U first;
-    public final V second;
+    public final U first; // row
+    public final V second; // column
 
     public Pair(U first, V second)
     {

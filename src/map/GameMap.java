@@ -49,7 +49,7 @@ public class GameMap {
             var row = map[i];
             for (int j = 0; j < row.length; j++) {
                 var elem = map[j][i];
-                System.out.print("[x:" + j + "][y: " + i + "]" + elem + "  ");
+                System.out.format("[x:%s][y:%s]%-13s", i, j, elem);
             }
             System.out.println();
         }

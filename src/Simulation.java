@@ -91,11 +91,11 @@ public class Simulation {
                     var holes = generateHoles();
                     // TODO: SHOW HOLES ON GUI
                     for (var hole : holes) {
-                        Object obj = GameMap.map[hole.first][hole.second];
+                        Object obj = GameMap.map[hole.second][hole.first];
                         if (obj instanceof WalkingFigure || obj instanceof RunningFigure) {
                             PlayerFigure figure = (PlayerFigure) obj;
                             figure.setMovementState(2);
-                            GameMap.map[hole.first][hole.second] = null;
+                            GameMap.map[hole.second][hole.first] = null;
                         }
                     }
                 }
