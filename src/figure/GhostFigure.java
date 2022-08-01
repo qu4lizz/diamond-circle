@@ -26,6 +26,7 @@ public class GhostFigure extends Figure implements Runnable {
             }
             addDiamonds();
         }
+        removeDiamonds();
     }
 
     public void addDiamonds() {
@@ -33,6 +34,7 @@ public class GhostFigure extends Figure implements Runnable {
         int numOfDiamonds = rand.nextInt((MAX_DIAMONDS - MIN_DIAMONDS) + 1) + MIN_DIAMONDS;
         synchronized (GameMap.map) {
             removeDiamonds();
+            diamondPositions = new HashSet<>();
             while (diamondPositions.size() != numOfDiamonds) {
                 var elem = GameMap.path.get(rand.nextInt(GameMap.path.size()));
                 if (!diamondPositions.contains(elem)) {
@@ -45,6 +47,7 @@ public class GhostFigure extends Figure implements Runnable {
                     }
                 }
             }
+            System.out.println("diamond");
             GameMap.toStr();
         }
     }

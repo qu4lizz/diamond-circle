@@ -86,11 +86,11 @@ public class Game {
                 Card currCard = deck.getDeck().get(0);
                 deck.getDeck().removeFirst();
                 deck.getDeck().addLast(currCard);
-                System.out.println(currCard);
                 if (currCard instanceof NumberCard) {
                     int cardVal = ((NumberCard) currCard).getValue();
-                    for (var figure : players.get(i).getFigures()) {
+                    for (var figure : playersTmp.get(i).getFigures()) {
                         if (figure.getMovementState() == 0) {
+                            System.out.println(currCard + " " + cardVal + " " + figure);
                             try {
                                 figure.move(cardVal);
                             } catch (InterruptedException e) {
@@ -103,8 +103,9 @@ public class Game {
                 else {
                     var holes = generateHoles();
                     // TODO: SHOW HOLES ON GUI
-                    for (var hole : holes) {
-                        synchronized (GameMap.map) {
+                    synchronized (GameMap.map) {
+                        System.out.println(currCard);
+                        for (var hole : holes) {
                             Object obj = GameMap.map[hole.second][hole.first];
                             if (obj instanceof WalkingFigure || obj instanceof RunningFigure) {
                                 PlayerFigure figure = (PlayerFigure) obj;
@@ -114,8 +115,8 @@ public class Game {
                         }
                     }
                 }
-                if (players.get(i).isFinished())
-                    playersTmp.remove(players.get(i));
+                if (playersTmp.get(i).isFinished())
+                    playersTmp.remove(playersTmp.get(i));
                 map.toStr();
             }
         }

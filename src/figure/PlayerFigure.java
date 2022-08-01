@@ -11,14 +11,14 @@ public abstract class PlayerFigure extends Figure {
     public enum Color {
         RED, GREEN, BLUE, YELLOW
     }
-    private static final int TIME_FOR_STEP = 1 * 1000;
+    private static final int TIME_FOR_STEP =  500;
     private int id;
     private int diamondBonus;
     private String color;
     private ArrayList<Pair<Integer, Integer>> path;
     private int movementState = 0; // 0 - still going, 1 - finished, 2 - fell into hole
     private int movementTime = 0; // TODO
-    protected int step = 1;
+    protected int step = 5;
 
     public PlayerFigure() { }
     public PlayerFigure(String color, int id) {
@@ -106,10 +106,11 @@ public abstract class PlayerFigure extends Figure {
                     GameMap.map[getCurrentField().second][getCurrentField().first] = null;
                     break;
                 }
-                if (objectOnField instanceof Diamond)
+                if (objectOnField instanceof Diamond) {
                     diamondBonus += ((Diamond) objectOnField).getValue();
-                if (diamondBonus != 0) // if diamond appears on field that has figure on it
                     moveVal += diamondBonus * step;
+                    diamondBonus = 0;
+                }
                 GameMap.map[getCurrentField().second][getCurrentField().first] = this;
             }
         }
