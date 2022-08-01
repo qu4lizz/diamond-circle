@@ -17,4 +17,7 @@ public class Diamond {
         return value;
     }
 
+    public String toString() {
+        return "diam: " + value;
+    }
 }

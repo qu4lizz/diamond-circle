@@ -1,3 +1,5 @@
+package simulation;
+
 import card.*;
 import exceptions.MapDimensionsException;
 import figure.*;
@@ -12,7 +14,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
 
-public class Simulation {
+public class Game {
     private static final String SIMULATIONS_PATH = "database/simulations/";
     private static final String LOGGER_PATH = "database/logger/";
     private static final int MIN_PLAYERS = 2;
@@ -24,17 +26,25 @@ public class Simulation {
     private File[] simulations;
     private LinkedList<Player> players;
     private GhostFigure ghost;
-    public static Deck deck;
-    public static GameMap map;
+    private static Deck deck;
+    private static GameMap map;
+    public static Boolean gameOver = false;
     public static Handler handler;
 
     {
         try {
             handler = new FileHandler(LOGGER_PATH + "simulation.log");
-            Logger.getLogger(Simulation.class.getName()).addHandler(handler);
+            Logger.getLogger(Game.class.getName()).addHandler(handler);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static synchronized Boolean isGameOver() {
+        return gameOver;
+    }
+    public static synchronized void setGameOver(Boolean bool) {
+        gameOver = bool;
     }
     public void run() {
         // Logger.getLogger(Banka.class.getName()).log(Level.WARNING, ex.fillInStackTrace().toString());
@@ -63,17 +73,20 @@ public class Simulation {
             throw new RuntimeException(e);
         }
         ghost = new GhostFigure();
+
         startGame();
     }
 
     private void startGame() {
         LinkedList<Player> playersTmp = (LinkedList<Player>) players.clone();
-        Object finalField = GameMap.path.get(GameMap.path.size() - 1);
+        Thread ghostThread = new Thread(ghost);
+        ghostThread.start();
         while (!playersTmp.isEmpty()) {
             for (int i = 0; i < playersTmp.size(); i++) {
                 Card currCard = deck.getDeck().get(0);
                 deck.getDeck().removeFirst();
                 deck.getDeck().addLast(currCard);
+                System.out.println(currCard);
                 if (currCard instanceof NumberCard) {
                     int cardVal = ((NumberCard) currCard).getValue();
                     for (var figure : players.get(i).getFigures()) {
@@ -91,11 +104,13 @@ public class Simulation {
                     var holes = generateHoles();
                     // TODO: SHOW HOLES ON GUI
                     for (var hole : holes) {
-                        Object obj = GameMap.map[hole.second][hole.first];
-                        if (obj instanceof WalkingFigure || obj instanceof RunningFigure) {
-                            PlayerFigure figure = (PlayerFigure) obj;
-                            figure.setMovementState(2);
-                            GameMap.map[hole.second][hole.first] = null;
+                        synchronized (GameMap.map) {
+                            Object obj = GameMap.map[hole.second][hole.first];
+                            if (obj instanceof WalkingFigure || obj instanceof RunningFigure) {
+                                PlayerFigure figure = (PlayerFigure) obj;
+                                figure.setMovementState(2);
+                                GameMap.map[hole.second][hole.first] = null;
+                            }
                         }
                     }
                 }
@@ -103,6 +118,12 @@ public class Simulation {
                     playersTmp.remove(players.get(i));
                 map.toStr();
             }
+        }
+        setGameOver(true);
+        try {
+            ghostThread.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 

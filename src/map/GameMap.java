@@ -44,15 +44,17 @@ public class GameMap {
         }
     }
 
-    public void toStr() {
-        for (int i = 0; i < map.length; i++) {
-            var row = map[i];
-            for (int j = 0; j < row.length; j++) {
-                var elem = map[j][i];
-                System.out.format("[x:%s][y:%s]%-13s", i, j, elem);
+    public static void toStr() {
+        synchronized (map) {
+            for (int i = 0; i < map.length; i++) {
+                var row = map[i];
+                for (int j = 0; j < row.length; j++) {
+                    var elem = map[j][i];
+                    System.out.format("[x:%s][y:%s]%-15s", i, j, elem);
+                }
+                System.out.println();
             }
-            System.out.println();
+            System.out.println("\n");
         }
-        System.out.println("\n");
     }
 }
