@@ -7,8 +7,10 @@ import map.GameMap;
 import player.Player;
 import utils.Pair;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
@@ -26,9 +28,11 @@ public class Game {
     private File[] simulations;
     private LinkedList<Player> players;
     private GhostFigure ghost;
-    private static Deck deck;
+    private Deck deck;
     private static GameMap map;
-    public static Boolean gameOver = false;
+    public static Boolean over = false;
+    private long executionTime = 0;
+    StringBuilder info = new StringBuilder();
     public static Handler handler;
 
     {
@@ -41,10 +45,10 @@ public class Game {
     }
 
     public static synchronized Boolean isGameOver() {
-        return gameOver;
+        return over;
     }
-    public static synchronized void setGameOver(Boolean bool) {
-        gameOver = bool;
+    public static synchronized void setOver(Boolean bool) {
+        over = bool;
     }
     public void run() {
         // Logger.getLogger(Banka.class.getName()).log(Level.WARNING, ex.fillInStackTrace().toString());
@@ -54,7 +58,20 @@ public class Game {
         // initializes map
         // initializes deck and players
         // creates ghost figure
-        numOfPlayers = 4;
+        Thread liveTime = new Thread(() -> {
+            long start = new Date().getTime();
+            while(!isGameOver()) {
+                try {
+                    Thread.sleep(1 * 1000);
+                    executionTime = (new Date().getTime() - start) / 1000;
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        liveTime.start();
+
+        numOfPlayers = 2;
         dimensions = 7;
 
         loadSimulations();
@@ -75,6 +92,23 @@ public class Game {
         ghost = new GhostFigure();
 
         startGame();
+        try {
+            liveTime.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        info.append("Execution time: " + executionTime + "s");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd_hh_mm_ss");
+        String fileName = sdf.format(new Date());
+        try {
+            BufferedWriter gameInfo = new BufferedWriter(new FileWriter(new File(SIMULATIONS_PATH + fileName + ".txt")));
+            gameInfo.write(info.toString());
+            gameInfo.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void startGame() {
@@ -115,19 +149,28 @@ public class Game {
                         }
                     }
                 }
-                if (playersTmp.get(i).isFinished())
+                if (playersTmp.get(i).isFinished()) {
+                    appendInfo(playersTmp.get(i), numOfPlayers - playersTmp.size() + 1);
                     playersTmp.remove(playersTmp.get(i));
+                }
                 map.toStr();
             }
         }
-        setGameOver(true);
+        setOver(true);
         try {
             ghostThread.join();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
     }
 
+    private void appendInfo(Player player, int position) {
+        info.append("Player " + position + " - " + player.getName() + "\n");
+        for (var figure : player.getFigures()) {
+            info.append(figure.info());
+        }
+    }
     private HashSet<Pair<Integer, Integer>> generateHoles() {
         HashSet<Pair<Integer, Integer>> res = new HashSet<>();
         int numOfHoles = SpecialCard.getRandomNumberOfHoles();

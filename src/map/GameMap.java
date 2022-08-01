@@ -42,6 +42,7 @@ public class GameMap {
             String[] coordinates = field.split(" ");
             path.add(new Pair(Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])));
         }
+        in.close();
     }
 
     public static void toStr() {

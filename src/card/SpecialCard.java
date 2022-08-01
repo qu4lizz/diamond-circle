@@ -21,5 +21,6 @@ public class SpecialCard extends Card {
         BufferedReader br = new BufferedReader(new FileReader(NUMBER_PATH));
         String s = br.readLine();
         numberOfHoles = Integer.parseInt(s);
+        br.close();
     }
 }

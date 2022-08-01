@@ -7,8 +7,8 @@ public class WalkingFigure extends PlayerFigure implements WalkingInterface {
         super(color, id);
     }
 
-    public String info(int dim) {
-        return infoUtil(dim, "Walking");
+    public String info() {
+        return infoUtil("Walking");
     }
 
     public String toString() {

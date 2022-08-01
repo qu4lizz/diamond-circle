@@ -11,14 +11,14 @@ public abstract class PlayerFigure extends Figure {
     public enum Color {
         RED, GREEN, BLUE, YELLOW
     }
-    private static final int TIME_FOR_STEP =  500;
+    private static final int TIME_FOR_STEP = /*1 * 1000*/100;
     private int id;
     private int diamondBonus;
     private String color;
     private ArrayList<Pair<Integer, Integer>> path;
     private int movementState = 0; // 0 - still going, 1 - finished, 2 - fell into hole
     private int movementTime = 0; // TODO
-    protected int step = 5;
+    protected int step = 8;
 
     public PlayerFigure() { }
     public PlayerFigure(String color, int id) {
@@ -59,12 +59,12 @@ public abstract class PlayerFigure extends Figure {
     public int getStep() {
         return step;
     }
-    protected String infoUtil(int dim, String type) {
-        StringBuilder str = new StringBuilder("Figure " + id + " (" + type + " " + getColor() + ") - path ( ");
+    protected String infoUtil(String type) {
+        StringBuilder str = new StringBuilder("Figure " + id + " (" + type + ", " + getColor() + ") - path (");
         int size = getPath().size();
         for (int i = 0; i < size; i++) {
             var pos = getPath().get(i);
-            int field = Utils.calculateNumberField(pos.second.intValue(), pos.first.intValue(), dim);
+            int field = Utils.calculateNumberField(pos.second.intValue(), pos.first.intValue(), GameMap.dimensions);
             str.append(field);
             if (i != size - 1)
                 str.append("-");
@@ -77,7 +77,7 @@ public abstract class PlayerFigure extends Figure {
 
         return str.toString();
     }
-    public abstract String info(int dim);
+    public abstract String info();
 
     public void move(int cardValue) throws InterruptedException {
         int moveVal = cardValue * step;
@@ -116,7 +116,7 @@ public abstract class PlayerFigure extends Figure {
         }
     }
 
-    private void setObjectOnMap(int row, int column, Object obj) {
+    /*private void setObjectOnMap(int row, int column, Object obj) {
         synchronized (GameMap.map) {
             GameMap.map[row][column] = obj;
         }
@@ -126,7 +126,7 @@ public abstract class PlayerFigure extends Figure {
         synchronized (GameMap.map) {
             return GameMap.map[row][column];
         }
-    }
+    }*/
 
     private void moveOneStep() {
         path.add(GameMap.path.get(path.size()));
