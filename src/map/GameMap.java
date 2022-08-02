@@ -4,9 +4,13 @@ import exceptions.MapDimensionsException;
 import utils.Pair;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GameMap {
     public static final String MAPS_PATH = "database/map/";
@@ -18,7 +22,7 @@ public class GameMap {
     public static ArrayList<Pair<Integer,Integer>> path = new ArrayList();
 
     public GameMap() { }
-    public GameMap(int dimensions) throws MapDimensionsException, IOException {
+    public GameMap(int dimensions) throws MapDimensionsException{
         if (dimensions < 7 || dimensions > 10)
             throw new MapDimensionsException();
         this.dimensions = dimensions;
@@ -34,15 +38,22 @@ public class GameMap {
             startingPos = (int) Math.ceil(dimensions / 2);
     }
 
-    private static void loadPath() throws IOException {
-        BufferedReader in = new BufferedReader(new FileReader(MAPS_PATH + dimensions + "x" + dimensions + "map.txt"));
-        String s = in.readLine();
-        String[] inputs = s.split(",");
-        for (String field : inputs) {
-            String[] coordinates = field.split(" ");
-            path.add(new Pair(Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])));
+    private static void loadPath() {
+        BufferedReader in = null;
+        try {
+            in = new BufferedReader(new FileReader(MAPS_PATH + dimensions + "x" + dimensions + "map.txt"));
+            String s = in.readLine();
+            String[] inputs = s.split(",");
+            for (String field : inputs) {
+                String[] coordinates = field.split(" ");
+                path.add(new Pair(Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])));
+            }
+            in.close();
+        } catch (FileNotFoundException e) {
+            Logger.getLogger(FileNotFoundException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+        } catch (IOException e) {
+            Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
-        in.close();
     }
 
     public static void toStr() {

@@ -11,7 +11,7 @@ public class Deck {
     public static final int NUMBER_OF_NUMBERED_CARDS = 10;
     private LinkedList<Card> deck = new LinkedList<>();
 
-    public Deck() throws IOException {
+    public Deck() {
         int num1, num2, num3, num4, specCardNum;
         num1 = num2 = num3 = num4 = NUMBER_OF_NUMBERED_CARDS;
         specCardNum = SIZE - NUMBER_OF_NUMBERED_CARDS * 4;

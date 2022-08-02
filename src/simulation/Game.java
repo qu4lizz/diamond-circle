@@ -14,6 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Game {
@@ -40,7 +41,7 @@ public class Game {
             handler = new FileHandler(LOGGER_PATH + "simulation.log");
             Logger.getLogger(Game.class.getName()).addHandler(handler);
         } catch (IOException e) {
-            e.printStackTrace();
+            Logger.getLogger(Game.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
     }
 
@@ -50,6 +51,7 @@ public class Game {
     public static synchronized void setOver(Boolean bool) {
         over = bool;
     }
+
     public void run() {
         // Logger.getLogger(Banka.class.getName()).log(Level.WARNING, ex.fillInStackTrace().toString());
         // app opens and asks for number of players and dimensions
@@ -64,8 +66,8 @@ public class Game {
                 try {
                     Thread.sleep(1 * 1000);
                     executionTime = (new Date().getTime() - start) / 1000;
-                } catch(Exception e) {
-                    e.printStackTrace();
+                } catch(InterruptedException e) {
+                    Logger.getLogger(Thread.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
                 }
             }
         });
@@ -79,23 +81,18 @@ public class Game {
         try {
              map = new GameMap(dimensions);
         } catch (MapDimensionsException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            Logger.getLogger(Map.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
         initializePlayers();
-        try {
-            deck = new Deck();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        deck = new Deck();
+
         ghost = new GhostFigure();
 
         startGame();
         try {
             liveTime.join();
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
         info.append("Execution time: " + executionTime + "s");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd_hh_mm_ss");
@@ -105,9 +102,9 @@ public class Game {
             gameInfo.write(info.toString());
             gameInfo.close();
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            Logger.getLogger(FileNotFoundException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
     }
 
@@ -128,7 +125,7 @@ public class Game {
                             try {
                                 figure.move(cardVal);
                             } catch (InterruptedException e) {
-                                throw new RuntimeException(e);
+                                Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
                             }
                             break;
                         }
@@ -147,6 +144,11 @@ public class Game {
                                 GameMap.map[hole.second][hole.first] = null;
                             }
                         }
+                        try {
+                            Thread.sleep(SpecialCard.TIME_FOR_HOLES);
+                        } catch (InterruptedException e) {
+                            Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                        }
                     }
                 }
                 if (playersTmp.get(i).isFinished()) {
@@ -160,7 +162,7 @@ public class Game {
         try {
             ghostThread.join();
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
 
     }

@@ -2,6 +2,9 @@ package figure;
 
 import java.util.HashSet;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import diamond.Diamond;
 import map.GameMap;
 import utils.Pair;
@@ -22,7 +25,7 @@ public class GhostFigure extends Figure implements Runnable {
             try {
                 Thread.sleep(TIME_FOR_ACTION);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                Logger.getLogger(Thread.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
             }
             addDiamonds();
         }
