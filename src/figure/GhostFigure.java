@@ -49,6 +49,7 @@ public class GhostFigure extends Figure implements Runnable {
                 }
             }
         }
+        GameMap.toStr();
     }
 
     private void removeDiamonds() {

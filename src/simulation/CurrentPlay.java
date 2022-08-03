@@ -92,7 +92,8 @@ public class CurrentPlay implements Runnable {
         StringBuilder sb = new StringBuilder(60);
         sb.append("It's ").append(currPlayer.getName()).append(" (").append(currPlayer.getColor()).append(") turn to play.\n");
         int value = GameMap.path.indexOf(toField) - GameMap.path.indexOf(fromField);
-        sb.append("Figure ").append(currFigure.getId()).append(" is moving for ").append(value + " (" + ((NumberCard)currCard).getValue() + ")").append(value == 1 ? " field" : " fields").append(".\n");
+        sb.append("Figure ").append(currFigure.getId()).append(" is moving for ").append(value).
+                append(value == 1 ? " field" : " fields").append(".\n");
         sb.append(Utils.calculateNumberField(fromField.second, fromField.first, GameMap.dimensions)).append("->").
            append(Utils.calculateNumberField(toField.second, toField.first, GameMap.dimensions));
         return sb.toString();

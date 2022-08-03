@@ -62,7 +62,7 @@ public abstract class PlayerFigure extends Figure {
         return step;
     }
     protected String infoUtil(String type) {
-        StringBuilder str = new StringBuilder("Figure " + id + " (" + type + ", " + getColor() + ") - path (");
+        StringBuilder str = new StringBuilder("\tFigure " + id + " (" + type + ", " + getColor() + ") - path (");
         int size = getPath().size();
 
         for (int i = 0; i < size; i++) {
@@ -74,18 +74,19 @@ public abstract class PlayerFigure extends Figure {
         }
         str.append(") - finished: ");
         if (getMovementState() == 1)
-            str.append("yes\n");
+            str.append("yes");
         else
-            str.append("no\n");
+            str.append("no");
 
+        str.append(" - movement time: ").append(movementTime / 1000).append("s\n");
         return str.toString();
     }
     public abstract String info();
 
     public void move(int cardValue) throws InterruptedException {
-        int moveVal = cardValue * step;
+        int moveVal = (cardValue + diamondBonus) * step;
+        diamondBonus = 0;
         long start = new Date().getTime();
-
         synchronized (GameMap.lock) {
             if (path.isEmpty()) {
                 path.add(GameMap.path.get(0));
@@ -93,7 +94,6 @@ public abstract class PlayerFigure extends Figure {
             }
             for (int i = 0; i < moveVal; i++) {
                 Thread.sleep(TIME_FOR_STEP);
-                //System.out.println("step ");
                 GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = null;
                 moveOneStep();
                 Object objectOnField = null;
@@ -112,12 +112,8 @@ public abstract class PlayerFigure extends Figure {
                     break;
                 }
                 if (objectOnField instanceof Diamond) {
-                    diamondBonus += ((Diamond) objectOnField).getValue();
-                    moveVal += diamondBonus * step;
-                    synchronized (CurrentPlay.lock) {
-                        CurrentPlay.setToField(calculateToField(diamondBonus));
-                    }
-                    diamondBonus = 0;
+                    diamondBonus++;
+                    System.out.println(this + " picked up diamond");
                 }
                 GameMap.map[getCurrentField().second][getCurrentField().first] = this;
             }
@@ -139,13 +135,13 @@ public abstract class PlayerFigure extends Figure {
     public Pair<Integer, Integer> calculateToField(int cardVal) {
         if (getPath().size() == 0)
             toField = GameMap.path.get(cardVal * step);
-        else if (GameMap.path.indexOf(toField) + cardVal * step < GameMap.path.size())
-            toField = GameMap.path.get(GameMap.path.indexOf(toField) + cardVal * step);
+        else if (GameMap.path.indexOf(toField) + (cardVal + diamondBonus) * step < GameMap.path.size())
+            toField = GameMap.path.get(GameMap.path.indexOf(toField) + (cardVal + diamondBonus) * step);
         else
             toField = GameMap.path.get(GameMap.path.size() - 1);
         while (GameMap.map[toField.second][toField.first] instanceof PlayerFigure) {
             if (GameMap.path.indexOf(toField) + step < GameMap.path.size())
-                toField = GameMap.path.get(GameMap.path.indexOf(toField) + cardVal * step);
+                toField = GameMap.path.get(GameMap.path.indexOf(toField) + step);
             else
                 toField = GameMap.path.get(GameMap.path.size() - 1);
         }

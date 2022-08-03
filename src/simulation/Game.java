@@ -28,7 +28,6 @@ public class Game {
     private LinkedList<Player> players;
     private GhostFigure ghost;
     private Deck deck;
-    private GameMap map;
     private static int executionTime;
     private StringBuilder gameOutputInfo = new StringBuilder();
     private static final Object lockExecutionTime = new Object();
@@ -38,7 +37,7 @@ public class Game {
 
     public static Handler handler;
 
-    {
+    static {
         try {
             handler = new FileHandler(LOGGER_PATH + "simulation.log");
             Logger.getLogger(Game.class.getName()).addHandler(handler);
@@ -81,28 +80,27 @@ public class Game {
         loadSimulations();
         currSimulation = simulations.length + 1;
         try {
-             map = new GameMap(dimensions);
+            GameMap map = new GameMap(dimensions);
         } catch (MapDimensionsException e) {
             Logger.getLogger(Map.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
         initializePlayers();
         deck = new Deck();
-
         ghost = new GhostFigure();
-
         startGame();
         try {
             liveTime.join();
         } catch (InterruptedException e) {
             Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
-        gameOutputInfo.append("Execution time: " + executionTime + "s");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd_hh_mm_ss");
+        gameOutputInfo.append("Execution time: ").append(getExecutionTime()).append("s");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss");
         String fileName = sdf.format(new Date());
+
         try {
-            BufferedWriter gameInfo = new BufferedWriter(new FileWriter(new File(SIMULATIONS_PATH + fileName + ".txt")));
-            gameInfo.write(gameOutputInfo.toString());
-            gameInfo.close();
+            FileWriter gameInfoOutput = new FileWriter("database/simulations/" + fileName + ".txt");
+            gameInfoOutput.write(gameOutputInfo.toString());
+            gameInfoOutput.close();
         } catch (FileNotFoundException e) {
             Logger.getLogger(FileNotFoundException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         } catch (IOException e) {
@@ -150,7 +148,6 @@ public class Game {
                 else {
                     var holes = generateHoles();
                     synchronized (GameMap.lock) {
-                        // System.out.println(currCard);
                         synchronized (CurrentPlay.lock) {
                             CurrentPlay.setCurrCard(currCard);
                             CurrentPlay.setCurrPlayer(player);
@@ -181,7 +178,7 @@ public class Game {
                     if (playersTmp.isEmpty())
                         setOver(true);
                 }
-                map.toStr();
+                GameMap.toStr();
             }
         }
         try {
@@ -195,7 +192,7 @@ public class Game {
     }
 
     private void appendInfo(Player player, int position) {
-        gameOutputInfo.append("Player " + position + " - " + player.getName() + "\n");
+        gameOutputInfo.append("Player ").append(position).append(" - ").append(player.getName()).append("\n");
         for (var figure : player.getFigures()) {
             gameOutputInfo.append(figure.info());
         }
@@ -224,9 +221,7 @@ public class Game {
     private void initializePlayers() {
         players = new LinkedList<>();
         PlayerFigure.Color[] tmp = PlayerFigure.Color.values();
-        LinkedList<PlayerFigure.Color> colors = new LinkedList<>();
-        for (var color : tmp)
-            colors.add(color);
+        LinkedList<PlayerFigure.Color> colors = new LinkedList<>(Arrays.asList(tmp));
 
         Random rand = new Random();
 
@@ -237,15 +232,12 @@ public class Game {
 
             for (int j = 0; j < Player.NUM_OF_FIGURES; j++) {
                 switch (rand.nextInt(3)) {
-                    case 0: // walking
-                        figures[j] = new WalkingFigure(playerColor, j + 1);
-                        break;
-                    case 1: // running
-                        figures[j] = new RunningFigure(playerColor, j + 1);
-                        break;
-                    case 2: // flying
-                        figures[j] = new FlyingFigure(playerColor, j + 1);
-                        break;
+                    case 0 -> // walking
+                            figures[j] = new WalkingFigure(playerColor, j + 1);
+                    case 1 -> // running
+                            figures[j] = new RunningFigure(playerColor, j + 1);
+                    case 2 -> // flying
+                            figures[j] = new FlyingFigure(playerColor, j + 1);
                 }
             }
 

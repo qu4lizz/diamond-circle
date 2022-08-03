@@ -33,7 +33,7 @@ public class GameMap {
     }
 
     private static void loadPath() {
-        BufferedReader in = null;
+        BufferedReader in;
         try {
             in = new BufferedReader(new FileReader(MAPS_PATH + dimensions + "x" + dimensions + "map.txt"));
             String s = in.readLine();
