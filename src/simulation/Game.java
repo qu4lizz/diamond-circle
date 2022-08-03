@@ -9,8 +9,6 @@ import utils.Pair;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
@@ -20,9 +18,9 @@ import java.util.logging.Logger;
 public class Game {
     private static final String SIMULATIONS_PATH = "database/simulations/";
     private static final String LOGGER_PATH = "database/logger/";
+    public static final int TIME_FOR_RELOAD = 1 * 1000;
     private static final int MIN_PLAYERS = 2;
     private static final int MAX_PLAYERS = 4;
-
     private int numOfPlayers;
     private int dimensions;
     private int currSimulation;
@@ -30,10 +28,14 @@ public class Game {
     private LinkedList<Player> players;
     private GhostFigure ghost;
     private Deck deck;
-    private static GameMap map;
+    private GameMap map;
+    private static int executionTime;
+    private StringBuilder gameOutputInfo = new StringBuilder();
+    private static final Object lockExecutionTime = new Object();
     public static Boolean over = false;
-    private long executionTime = 0;
-    StringBuilder info = new StringBuilder();
+
+    public static CurrentPlay currentPlay = new CurrentPlay();
+
     public static Handler handler;
 
     {
@@ -51,21 +53,21 @@ public class Game {
     public static synchronized void setOver(Boolean bool) {
         over = bool;
     }
+    public static int getExecutionTime() {
+        synchronized (lockExecutionTime) {
+            return executionTime;
+        }
+    }
 
     public void run() {
-        // Logger.getLogger(Banka.class.getName()).log(Level.WARNING, ex.fillInStackTrace().toString());
-        // app opens and asks for number of players and dimensions
-        // loads simulations
-        // opens simulation output file
-        // initializes map
-        // initializes deck and players
-        // creates ghost figure
         Thread liveTime = new Thread(() -> {
             long start = new Date().getTime();
             while(!isGameOver()) {
                 try {
-                    Thread.sleep(1 * 1000);
-                    executionTime = (new Date().getTime() - start) / 1000;
+                    synchronized (lockExecutionTime) {
+                        executionTime = (int)(new Date().getTime() - start) / 1000;
+                    }
+                    Thread.sleep(TIME_FOR_RELOAD);
                 } catch(InterruptedException e) {
                     Logger.getLogger(Thread.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
                 }
@@ -73,7 +75,7 @@ public class Game {
         });
         liveTime.start();
 
-        numOfPlayers = 2;
+        numOfPlayers = 4;
         dimensions = 7;
 
         loadSimulations();
@@ -94,12 +96,12 @@ public class Game {
         } catch (InterruptedException e) {
             Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
-        info.append("Execution time: " + executionTime + "s");
+        gameOutputInfo.append("Execution time: " + executionTime + "s");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd_hh_mm_ss");
         String fileName = sdf.format(new Date());
         try {
             BufferedWriter gameInfo = new BufferedWriter(new FileWriter(new File(SIMULATIONS_PATH + fileName + ".txt")));
-            gameInfo.write(info.toString());
+            gameInfo.write(gameOutputInfo.toString());
             gameInfo.close();
         } catch (FileNotFoundException e) {
             Logger.getLogger(FileNotFoundException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
@@ -107,21 +109,35 @@ public class Game {
             Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
     }
-
+    // TODO: hashCode for HashSet
     private void startGame() {
         LinkedList<Player> playersTmp = (LinkedList<Player>) players.clone();
         Thread ghostThread = new Thread(ghost);
         ghostThread.start();
+        Thread currInfo = new Thread(currentPlay);
+        boolean startCurrInfoThread = true;
+
         while (!playersTmp.isEmpty()) {
             for (int i = 0; i < playersTmp.size(); i++) {
+                Player player = playersTmp.get(i);
                 Card currCard = deck.getDeck().get(0);
                 deck.getDeck().removeFirst();
                 deck.getDeck().addLast(currCard);
                 if (currCard instanceof NumberCard) {
                     int cardVal = ((NumberCard) currCard).getValue();
-                    for (var figure : playersTmp.get(i).getFigures()) {
+                    for (var figure : player.getFigures()) {
                         if (figure.getMovementState() == 0) {
-                            System.out.println(currCard + " " + cardVal + " " + figure);
+                            synchronized (CurrentPlay.lock) {
+                                CurrentPlay.setCurrCard(currCard);
+                                CurrentPlay.setCurrPlayer(player);
+                                CurrentPlay.setCurrFigure(figure);
+                                CurrentPlay.setFromField(figure.getPath().size() == 0 ? GameMap.path.get(0) : figure.getPath().get(figure.getPath().size() - 1));
+                                CurrentPlay.setToField(figure.calculateToField(cardVal));
+                            }
+                            if (startCurrInfoThread) {
+                                currInfo.start();
+                                startCurrInfoThread = false;
+                            }
                             try {
                                 figure.move(cardVal);
                             } catch (InterruptedException e) {
@@ -133,9 +149,17 @@ public class Game {
                 }
                 else {
                     var holes = generateHoles();
-                    // TODO: SHOW HOLES ON GUI
-                    synchronized (GameMap.map) {
-                        System.out.println(currCard);
+                    synchronized (GameMap.lock) {
+                        // System.out.println(currCard);
+                        synchronized (CurrentPlay.lock) {
+                            CurrentPlay.setCurrCard(currCard);
+                            CurrentPlay.setCurrPlayer(player);
+                            CurrentPlay.setNumOfHoles(holes.size());
+                        }
+                        if (startCurrInfoThread) {
+                            currInfo.start();
+                            startCurrInfoThread = false;
+                        }
                         for (var hole : holes) {
                             Object obj = GameMap.map[hole.second][hole.first];
                             if (obj instanceof WalkingFigure || obj instanceof RunningFigure) {
@@ -151,16 +175,19 @@ public class Game {
                         }
                     }
                 }
-                if (playersTmp.get(i).isFinished()) {
-                    appendInfo(playersTmp.get(i), numOfPlayers - playersTmp.size() + 1);
-                    playersTmp.remove(playersTmp.get(i));
+                if (player.isFinished()) {
+                    appendInfo(player, numOfPlayers - playersTmp.size() + 1);
+                    playersTmp.remove(player);
+                    if (playersTmp.isEmpty())
+                        setOver(true);
                 }
                 map.toStr();
             }
         }
-        setOver(true);
         try {
             ghostThread.join();
+            currInfo.join();
+            CurrentPlay.setDescription("");
         } catch (InterruptedException e) {
             Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
@@ -168,9 +195,9 @@ public class Game {
     }
 
     private void appendInfo(Player player, int position) {
-        info.append("Player " + position + " - " + player.getName() + "\n");
+        gameOutputInfo.append("Player " + position + " - " + player.getName() + "\n");
         for (var figure : player.getFigures()) {
-            info.append(figure.info());
+            gameOutputInfo.append(figure.info());
         }
     }
     private HashSet<Pair<Integer, Integer>> generateHoles() {
@@ -192,6 +219,7 @@ public class Game {
         File path = new File(SIMULATIONS_PATH);
         simulations = path.listFiles();
     }
+
 
     private void initializePlayers() {
         players = new LinkedList<>();

@@ -2,23 +2,25 @@ package figure;
 
 import diamond.Diamond;
 import map.GameMap;
+import simulation.CurrentPlay;
 import utils.Pair;
 import utils.Utils;
-
 import java.util.ArrayList;
+import java.util.Date;
 
 public abstract class PlayerFigure extends Figure {
     public enum Color {
         RED, GREEN, BLUE, YELLOW
     }
-    private static final int TIME_FOR_STEP = /*1 * 1000*/100;
+    private static final int TIME_FOR_STEP = 1 * 1000;
     private int id;
     private int diamondBonus;
     private String color;
     private ArrayList<Pair<Integer, Integer>> path;
     private int movementState = 0; // 0 - still going, 1 - finished, 2 - fell into hole
-    private int movementTime = 0; // TODO
-    protected int step = 8;
+    private int movementTime = 0;
+    private Pair<Integer, Integer> toField;
+    protected int step = 1;
 
     public PlayerFigure() { }
     public PlayerFigure(String color, int id) {
@@ -62,6 +64,7 @@ public abstract class PlayerFigure extends Figure {
     protected String infoUtil(String type) {
         StringBuilder str = new StringBuilder("Figure " + id + " (" + type + ", " + getColor() + ") - path (");
         int size = getPath().size();
+
         for (int i = 0; i < size; i++) {
             var pos = getPath().get(i);
             int field = Utils.calculateNumberField(pos.second.intValue(), pos.first.intValue(), GameMap.dimensions);
@@ -81,14 +84,16 @@ public abstract class PlayerFigure extends Figure {
 
     public void move(int cardValue) throws InterruptedException {
         int moveVal = cardValue * step;
-        synchronized (GameMap.map) {
+        long start = new Date().getTime();
+
+        synchronized (GameMap.lock) {
             if (path.isEmpty()) {
                 path.add(GameMap.path.get(0));
                 GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = this;
             }
             for (int i = 0; i < moveVal; i++) {
                 Thread.sleep(TIME_FOR_STEP);
-                System.out.println("step ");
+                //System.out.println("step ");
                 GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = null;
                 moveOneStep();
                 Object objectOnField = null;
@@ -109,24 +114,16 @@ public abstract class PlayerFigure extends Figure {
                 if (objectOnField instanceof Diamond) {
                     diamondBonus += ((Diamond) objectOnField).getValue();
                     moveVal += diamondBonus * step;
+                    synchronized (CurrentPlay.lock) {
+                        CurrentPlay.setToField(calculateToField(diamondBonus));
+                    }
                     diamondBonus = 0;
                 }
                 GameMap.map[getCurrentField().second][getCurrentField().first] = this;
             }
         }
+        movementTime += new Date().getTime() - start;
     }
-
-    /*private void setObjectOnMap(int row, int column, Object obj) {
-        synchronized (GameMap.map) {
-            GameMap.map[row][column] = obj;
-        }
-    }
-
-    private Object getObjectFromMap(int row, int column) {
-        synchronized (GameMap.map) {
-            return GameMap.map[row][column];
-        }
-    }*/
 
     private void moveOneStep() {
         path.add(GameMap.path.get(path.size()));
@@ -139,5 +136,19 @@ public abstract class PlayerFigure extends Figure {
     private Pair<Integer, Integer> getCurrentField() {
         return path.get(path.size() - 1);
     }
-
+    public Pair<Integer, Integer> calculateToField(int cardVal) {
+        if (getPath().size() == 0)
+            toField = GameMap.path.get(cardVal * step);
+        else if (GameMap.path.indexOf(toField) + cardVal * step < GameMap.path.size())
+            toField = GameMap.path.get(GameMap.path.indexOf(toField) + cardVal * step);
+        else
+            toField = GameMap.path.get(GameMap.path.size() - 1);
+        while (GameMap.map[toField.second][toField.first] instanceof PlayerFigure) {
+            if (GameMap.path.indexOf(toField) + step < GameMap.path.size())
+                toField = GameMap.path.get(GameMap.path.indexOf(toField) + cardVal * step);
+            else
+                toField = GameMap.path.get(GameMap.path.size() - 1);
+        }
+        return toField;
+    }
 }
