@@ -34,7 +34,11 @@ public class Game {
     public static Boolean over = false;
 
     public static CurrentPlay currentPlay = new CurrentPlay();
-
+    public Game(int numOfPlayers, int dimensions, String[] playerNames) {
+        this.numOfPlayers = numOfPlayers;
+        this.dimensions = dimensions;
+        initializePlayers(playerNames);
+    }
     public static Handler handler;
 
     static {
@@ -74,9 +78,6 @@ public class Game {
         });
         liveTime.start();
 
-        numOfPlayers = 4;
-        dimensions = 7;
-
         loadSimulations();
         currSimulation = simulations.length + 1;
         try {
@@ -84,7 +85,7 @@ public class Game {
         } catch (MapDimensionsException e) {
             Logger.getLogger(Map.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
-        initializePlayers();
+
         deck = new Deck();
         ghost = new GhostFigure();
         startGame();
@@ -192,7 +193,7 @@ public class Game {
     }
 
     private void appendInfo(Player player, int position) {
-        gameOutputInfo.append("Player ").append(position).append(" - ").append(player.getName()).append("\n");
+        gameOutputInfo.append("Player ").append(player.getId()).append(" place: ").append(position).append(" - ").append(player.getName()).append("\n");
         for (var figure : player.getFigures()) {
             gameOutputInfo.append(figure.info());
         }
@@ -218,7 +219,7 @@ public class Game {
     }
 
 
-    private void initializePlayers() {
+    private void initializePlayers(String[] playerNames) {
         players = new LinkedList<>();
         PlayerFigure.Color[] tmp = PlayerFigure.Color.values();
         LinkedList<PlayerFigure.Color> colors = new LinkedList<>(Arrays.asList(tmp));
@@ -241,7 +242,7 @@ public class Game {
                 }
             }
 
-            Player player = new Player(playerColor, "Player" + i, figures);
+            Player player = new Player(playerColor, playerNames[i], figures, i + 1);
             players.add(player);
             colors.remove(playerColorIndex);
         }
