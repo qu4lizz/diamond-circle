@@ -5,8 +5,8 @@ public class FlyingFigure extends PlayerFigure implements FlyingInterface {
         super(color, id);
     }
 
-    public String info(int dim) {
-        return infoUtil(dim, "Flying");
+    public String info() {
+        return infoUtil("Flying");
     }
 
     public String toString() {
