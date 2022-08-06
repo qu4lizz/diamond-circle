@@ -30,7 +30,7 @@ public class AlertBox {
 
         Label label = new Label(message);
         label.setTextFill(Color.web("#e0c097"));
-        label.setFont(Font.font("JetBrainsMono Nerd Font Mono", FontPosture.REGULAR, 20));
+        label.setFont(Font.font("JetBrainsMono Nerd Font Mono", FontPosture.REGULAR, 18));
         label.setWrapText(true);
         label.setMaxWidth(300);
         label.setAlignment(Pos.CENTER);
@@ -40,7 +40,7 @@ public class AlertBox {
         closeButton.setOnAction(e -> window.close());
         closeButton.setStyle("-fx-background-color:#2D2424");
         closeButton.setTextFill(Color.web("#e0c097"));
-        closeButton.setFont(Font.font("JetBrainsMono Nerd Font", FontPosture.REGULAR, 25));
+        closeButton.setFont(Font.font("JetBrainsMono Nerd Font", FontPosture.REGULAR, 20));
 
         VBox layout = new VBox(10);
         layout.setStyle("-fx-background-color:#5C3D2E");

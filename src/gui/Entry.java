@@ -3,7 +3,9 @@ package gui;
 import gui.components.AlertBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -13,9 +15,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import simulation.Game;
 import utils.Utils;
+
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Array;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Entry implements Initializable {
 
@@ -50,8 +58,6 @@ public class Entry implements Initializable {
     @FXML
     private TextField player4TextField;
     @FXML
-    private ImageView imageIcon;
-    @FXML
     private Button startGameButton;
 
     private int numOfPlayers;
@@ -64,7 +70,6 @@ public class Entry implements Initializable {
         dimensionsChoiceBox.getItems().addAll(dimensionOptions);
         dimensionsChoiceBox.setOnAction(this::getDimensions);
         hideGridComponents();
-        imageIcon = new ImageView(new Image("file:resources/images/icon.png")); // not showing
     }
 
     @FXML
@@ -74,8 +79,9 @@ public class Entry implements Initializable {
         player2 = player2TextField.getText();
         player3 = player3TextField.getText();
         player4 = player4TextField.getText();
-        String[] players = {player1, player2, player3, player4};
 
+        String[] playersNonFiltered = {player1, player2, player3, player4};
+        String[] players = Arrays.stream(playersNonFiltered).filter(Predicate.not(String::isEmpty)).toArray(String[]::new);
         if (numOfPlayersChoiceBox.getValue() == null) {
             AlertBox.display("Error", "You must choose number of players");
         }
@@ -89,19 +95,31 @@ public class Entry implements Initializable {
             AlertBox.display("Error", "Players must have unique names");
         }
         else {
-            // Game game = new Game(numOfPlayers, dimensions, players);
+            Game game = new Game(numOfPlayers, dimensions, players);
+            FXMLLoader fxmlLoader = new FXMLLoader(Simulation.class.getResource("simulation.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load(), 1280, 900);
+            } catch (IOException e) {
+                Logger.getLogger(Game.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            }
+
+            Main.getStage().setScene(scene);
+            Main.getStage().setResizable(true);
+            Main.getStage().setMinHeight(900);
+            Main.getStage().setMinWidth(1280);
         }
     }
 
     public void getDimensions(ActionEvent event) {
         String dimStr = dimensionsChoiceBox.getValue();
-        String[] split = dimStr.trim().split("x");
+        String[] split = dimStr.split("x");
         dimensions = Integer.parseInt(split[0]);
     }
     public void getNumOfPlayers(ActionEvent event) {
         hideGridComponents();
         String numStr = numOfPlayersChoiceBox.getValue();
-        int numOfPlayers = Integer.parseInt(numStr.trim());
+        numOfPlayers = Integer.parseInt(numStr);
         player1Label.setVisible(true);
         player1TextField.setVisible(true);
         player2Label.setVisible(true);

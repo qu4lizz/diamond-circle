@@ -3,6 +3,7 @@ package simulation;
 import card.Card;
 import card.NumberCard;
 import figure.PlayerFigure;
+import gui.Simulation;
 import map.GameMap;
 import player.Player;
 import utils.Pair;
@@ -23,10 +24,6 @@ public class CurrentPlay implements Runnable {
     public static final Object lock = new Object();
 
     public CurrentPlay() { description = "";}
-
-    public static String getDescription() {
-        return description;
-    }
 
     public static void setFromField(Pair<Integer, Integer> fromField) {
         CurrentPlay.fromField = fromField;
@@ -76,6 +73,7 @@ public class CurrentPlay implements Runnable {
                             description = numberedCardDescription();
                         else
                             description = specialCardDescription();
+                        Simulation.descriptionRefresh(description);
                     }
                     infoChanged = false;
                 }

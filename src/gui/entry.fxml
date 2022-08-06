@@ -6,7 +6,6 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -22,17 +21,16 @@
         <items>
           <AnchorPane minHeight="399.0" minWidth="271.0" prefHeight="399.0" prefWidth="271.0" style="-fx-background-color: #2d2424;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="167.0" maxHeight="278.0" maxWidth="287.0" minHeight="243.0" minWidth="242.0" prefHeight="278.0" prefWidth="287.0" scaleShape="false" text="DiamondCircle" textAlignment="CENTER" textFill="#b85c38" wrapText="true" AnchorPane.bottomAnchor="203.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="43.76613279570131" AnchorPane.topAnchor="204.0">
-                     <font>
-                        <Font name="FreeMono" size="66.0" />
-                     </font>
-                  </Label>
                   <Circle fill="#ffaa0000" focusTraversable="true" layoutX="198.0" layoutY="391.0" radius="169.0" stroke="#b85c38" strokeType="INSIDE" strokeWidth="4.0" AnchorPane.bottomAnchor="238.89519516131156" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="29.954166884147355" AnchorPane.topAnchor="222.0">
                      <effect>
                         <DropShadow />
                      </effect>
                   </Circle>
-                  <ImageView fx:id="imageIcon" fitHeight="143.0" fitWidth="152.0" layoutX="56.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="197.95416688414736" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="167.0" maxHeight="278.0" maxWidth="287.0" minHeight="243.0" minWidth="242.0" prefHeight="278.0" prefWidth="287.0" scaleShape="false" text="DiamondCircle" textAlignment="CENTER" textFill="#b85c38" wrapText="true" AnchorPane.bottomAnchor="203.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="43.76613279570131" AnchorPane.topAnchor="204.0">
+                     <font>
+                        <Font name="FreeMono" size="66.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="399.0" prefWidth="345.0" style="-fx-background-color: #5C3D2E;">
@@ -52,7 +50,7 @@
                         <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="22.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="numOfPlayersChoiceBox" layoutX="159.0" layoutY="134.0" prefHeight="27.0" prefWidth="149.0" stylesheets="file:/mnt/windows/projects/Java/DiamondCircle/src/gui/choicebox.css" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="159.0" />
+                  <ChoiceBox fx:id="numOfPlayersChoiceBox" layoutX="159.0" layoutY="134.0" prefHeight="30.0" prefWidth="279.0" stylesheets="file:/mnt/windows/projects/Java/DiamondCircle/src/gui/choicebox.css" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="158.0" />
                   <Label alignment="CENTER" layoutX="122.0" layoutY="474.0" prefHeight="26.0" prefWidth="223.0" text="Dimensions of map" textAlignment="CENTER" textFill="#e0c097" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="122.0">
                      <font>
                         <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="22.0" />

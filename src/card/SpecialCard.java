@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class SpecialCard extends Card {
-    private static final String NUMBER_PATH = "database/numberOfMaximumHoles.txt";
+    private static final String NUMBER_PATH = "resources/numberOfMaximumHoles.txt";
     public static final int TIME_FOR_HOLES = 2 * 1000;
     private static int numberOfHoles;
 

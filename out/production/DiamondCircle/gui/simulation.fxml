@@ -1824,7 +1824,7 @@
                                                             </AnchorPane>
                                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #2D2424;">
                                                                <children>
-                                                                  <Label fx:id="gameTimeLabel" alignment="CENTER" prefHeight="115.6951843179927" prefWidth="331.1275964963239" text="Game time:" textAlignment="CENTER" textFill="#e0c097" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <Label fx:id="currNumberOfPlayedGames1" alignment="CENTER" prefHeight="115.6951843179927" prefWidth="331.1275964963239" text="Game time:" textAlignment="CENTER" textFill="#e0c097" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                      <font>
                                                                         <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="22.0" />
                                                                      </font>

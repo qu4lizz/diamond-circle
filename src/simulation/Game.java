@@ -3,6 +3,7 @@ package simulation;
 import card.*;
 import exceptions.MapDimensionsException;
 import figure.*;
+import gui.Simulation;
 import map.GameMap;
 import player.Player;
 import utils.Pair;
@@ -19,26 +20,17 @@ public class Game {
     private static final String SIMULATIONS_PATH = "database/simulations/";
     private static final String LOGGER_PATH = "database/logger/";
     public static final int TIME_FOR_RELOAD = 1 * 1000;
-    private static final int MIN_PLAYERS = 2;
-    private static final int MAX_PLAYERS = 4;
-    private int numOfPlayers;
-    private int dimensions;
-    private int currSimulation;
-    private File[] simulations;
-    private LinkedList<Player> players;
-    private GhostFigure ghost;
-    private Deck deck;
+    private static int numOfPlayers;
+    private static int dimensions;
+    private static File[] simulations;
+    private static LinkedList<Player> players;
+    private static GhostFigure ghost;
+    private static Deck deck;
     private static int executionTime;
-    private StringBuilder gameOutputInfo = new StringBuilder();
+    private static StringBuilder gameOutputInfo = new StringBuilder();
     private static final Object lockExecutionTime = new Object();
-    public static Boolean over = false;
-
+    private static Boolean over = false;
     public static CurrentPlay currentPlay = new CurrentPlay();
-    public Game(int numOfPlayers, int dimensions, String[] playerNames) {
-        this.numOfPlayers = numOfPlayers;
-        this.dimensions = dimensions;
-        initializePlayers(playerNames);
-    }
     public static Handler handler;
 
     static {
@@ -50,6 +42,17 @@ public class Game {
         }
     }
 
+    public Game(int numOfPlayers, int dimensions, String[] playerNames) {
+        this.numOfPlayers = numOfPlayers;
+        this.dimensions = dimensions;
+        initializePlayers(playerNames);
+    }
+
+    public static File[] getSimulations() { return simulations; }
+    public static int getDimensions() { return dimensions; }
+    public static LinkedList<Player> getPlayers() {
+        return players;
+    }
     public static synchronized Boolean isGameOver() {
         return over;
     }
@@ -69,6 +72,7 @@ public class Game {
                 try {
                     synchronized (lockExecutionTime) {
                         executionTime = (int)(new Date().getTime() - start) / 1000;
+                        Simulation.executionTimeRefresh(executionTime);
                     }
                     Thread.sleep(TIME_FOR_RELOAD);
                 } catch(InterruptedException e) {
@@ -79,9 +83,9 @@ public class Game {
         liveTime.start();
 
         loadSimulations();
-        currSimulation = simulations.length + 1;
         try {
             GameMap map = new GameMap(dimensions);
+            Simulation.setNumberOfPlayedGames(simulations.length);
         } catch (MapDimensionsException e) {
             Logger.getLogger(Map.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
@@ -99,7 +103,7 @@ public class Game {
         String fileName = sdf.format(new Date());
 
         try {
-            FileWriter gameInfoOutput = new FileWriter("database/simulations/" + fileName + ".txt");
+            FileWriter gameInfoOutput = new FileWriter(SIMULATIONS_PATH + fileName + ".txt");
             gameInfoOutput.write(gameOutputInfo.toString());
             gameInfoOutput.close();
         } catch (FileNotFoundException e) {
@@ -127,6 +131,11 @@ public class Game {
                     for (var figure : player.getFigures()) {
                         if (figure.getMovementState() == 0) {
                             synchronized (CurrentPlay.lock) {
+                                try {
+                                    Simulation.cardRefresh(currCard);
+                                } catch (IOException e) {
+                                    Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                                }
                                 CurrentPlay.setCurrCard(currCard);
                                 CurrentPlay.setCurrPlayer(player);
                                 CurrentPlay.setCurrFigure(figure);
