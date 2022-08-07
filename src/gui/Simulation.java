@@ -3,8 +3,11 @@ package gui;
 import card.Card;
 import card.NumberCard;
 import card.SpecialCard;
+import figure.GhostFigure;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
@@ -12,7 +15,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import player.Player;
+import simulation.CurrentPlay;
+import simulation.ExecutionTime;
 import simulation.Game;
 
 import java.io.File;
@@ -20,6 +26,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Simulation implements Initializable {
 
@@ -263,22 +271,49 @@ public class Simulation implements Initializable {
 
     @FXML
     void listOfFilesOnMouseClicked(MouseEvent event) {
-        File[] simulations = Game.getSimulations();
-        // TODO:
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(Entry.class.getResource("entry.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load(), 800, 600);
+        } catch (IOException e) {
+            Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+        }
+        stage.setTitle("Simulation files");
+        stage.getIcons().add(new Image(Main.ICON_PATH));
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void startPauseOnMouseClicked(MouseEvent event) {
-        // TODO:
+        if (startPauseToggleButton.isSelected()) {
+            startPauseToggleButton.setText("Unpause");
+            Game.pause();
+            GhostFigure.pause();
+            CurrentPlay.pause();
+            ExecutionTime.pause();
+        }
+        else {
+            startPauseToggleButton.setText("Pause");
+            Game.resume();
+            GhostFigure.resume();
+            CurrentPlay.resume();
+            ExecutionTime.resume();
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        startPauseToggleButton.setText("Pause");
         playersAndFiguresBar(Game.getPlayers());
         mapGuiInit(Game.getDimensions());
     }
 
 
+    public static void refreshMap() {
+
+    }
 
     public static void executionTimeRefresh(int time) {
         gameTimeLabel.setText("Game time: " + time);

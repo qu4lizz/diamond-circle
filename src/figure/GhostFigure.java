@@ -19,9 +19,33 @@ public class GhostFigure extends Figure implements Runnable {
         MAX_DIAMONDS = GameMap.dimensions;
     }
 
+    private static volatile boolean paused = false;
+    private static final Object pauseLock = new Object();
+
+    public static void pause() {
+        paused = true;
+    }
+
+    public static void resume() {
+        synchronized (pauseLock) {
+            paused = false;
+            pauseLock.notifyAll();
+        }
+    }
+
+
     @Override
     public void run() {
         while (!Game.isGameOver()) {
+            synchronized (pauseLock) {
+                if (paused) {
+                    try {
+                        pauseLock.wait();
+                    } catch (InterruptedException e) {
+                        Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                    }
+                }
+            }
             try {
                 Thread.sleep(TIME_FOR_ACTION);
             } catch (InterruptedException e) {

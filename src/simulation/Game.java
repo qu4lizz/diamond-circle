@@ -16,7 +16,7 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Game {
+public class Game implements Runnable {
     private static final String SIMULATIONS_PATH = "database/simulations/";
     private static final String LOGGER_PATH = "database/logger/";
     public static final int TIME_FOR_RELOAD = 1 * 1000;
@@ -26,12 +26,14 @@ public class Game {
     private static LinkedList<Player> players;
     private static GhostFigure ghost;
     private static Deck deck;
-    private static int executionTime;
     private static StringBuilder gameOutputInfo = new StringBuilder();
-    private static final Object lockExecutionTime = new Object();
     private static Boolean over = false;
+    private static ExecutionTime executionTime;
     public static CurrentPlay currentPlay = new CurrentPlay();
     public static Handler handler;
+
+    private static volatile boolean paused = false;
+    private static final Object pauseLock = new Object();
 
     static {
         try {
@@ -48,6 +50,15 @@ public class Game {
         initializePlayers(playerNames);
     }
 
+    public static boolean isPaused() { return paused; }
+    public static Object getPauseLock() { return pauseLock; }
+    public static void pause() { paused = true; }
+    public static void resume() {
+        synchronized (pauseLock) {
+            paused = false;
+            pauseLock.notifyAll();
+        }
+    }
     public static File[] getSimulations() { return simulations; }
     public static int getDimensions() { return dimensions; }
     public static LinkedList<Player> getPlayers() {
@@ -60,28 +71,11 @@ public class Game {
         over = bool;
     }
     public static int getExecutionTime() {
-        synchronized (lockExecutionTime) {
-            return executionTime;
-        }
+        return executionTime.getExecutionTime();
     }
-
+    @Override
     public void run() {
-        Thread liveTime = new Thread(() -> {
-            long start = new Date().getTime();
-            while(!isGameOver()) {
-                try {
-                    synchronized (lockExecutionTime) {
-                        executionTime = (int)(new Date().getTime() - start) / 1000;
-                        Simulation.executionTimeRefresh(executionTime);
-                    }
-                    Thread.sleep(TIME_FOR_RELOAD);
-                } catch(InterruptedException e) {
-                    Logger.getLogger(Thread.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
-                }
-            }
-        });
-        liveTime.start();
-
+        Thread liveTime = new Thread(executionTime);
         loadSimulations();
         try {
             GameMap map = new GameMap(dimensions);
@@ -89,28 +83,19 @@ public class Game {
         } catch (MapDimensionsException e) {
             Logger.getLogger(Map.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
-
         deck = new Deck();
         ghost = new GhostFigure();
+
+        liveTime.start();
+
         startGame();
+        writeSimulation();
         try {
             liveTime.join();
         } catch (InterruptedException e) {
             Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
-        gameOutputInfo.append("Execution time: ").append(getExecutionTime()).append("s");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss");
-        String fileName = sdf.format(new Date());
 
-        try {
-            FileWriter gameInfoOutput = new FileWriter(SIMULATIONS_PATH + fileName + ".txt");
-            gameInfoOutput.write(gameOutputInfo.toString());
-            gameInfoOutput.close();
-        } catch (FileNotFoundException e) {
-            Logger.getLogger(FileNotFoundException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
-        } catch (IOException e) {
-            Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
-        }
     }
     // TODO: hashCode for HashSet
     private void startGame() {
@@ -122,6 +107,15 @@ public class Game {
 
         while (!playersTmp.isEmpty()) {
             for (int i = 0; i < playersTmp.size(); i++) {
+                synchronized (pauseLock) {
+                    if (paused) {
+                        try {
+                            pauseLock.wait();
+                        } catch (InterruptedException e) {
+                            Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                        }
+                    }
+                }
                 Player player = playersTmp.get(i);
                 Card currCard = deck.getDeck().get(0);
                 deck.getDeck().removeFirst();
@@ -188,7 +182,6 @@ public class Game {
                     if (playersTmp.isEmpty())
                         setOver(true);
                 }
-                GameMap.toStr();
             }
         }
         try {
@@ -220,6 +213,22 @@ public class Game {
             }
         }
         return res;
+    }
+
+    private void writeSimulation() {
+        gameOutputInfo.append("Execution time: ").append(getExecutionTime()).append("s");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss");
+        String fileName = sdf.format(new Date());
+
+        try {
+            FileWriter gameInfoOutput = new FileWriter(SIMULATIONS_PATH + fileName + ".txt");
+            gameInfoOutput.write(gameOutputInfo.toString());
+            gameInfoOutput.close();
+        } catch (FileNotFoundException e) {
+            Logger.getLogger(FileNotFoundException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+        } catch (IOException e) {
+            Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+        }
     }
 
     private void loadSimulations() {

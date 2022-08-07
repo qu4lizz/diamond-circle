@@ -3,10 +3,13 @@ package figure;
 import diamond.Diamond;
 import map.GameMap;
 import simulation.CurrentPlay;
+import simulation.Game;
 import utils.Pair;
 import utils.Utils;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public abstract class PlayerFigure extends Figure {
     public enum Color {
@@ -93,6 +96,15 @@ public abstract class PlayerFigure extends Figure {
                 GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = this;
             }
             for (int i = 0; i < moveVal; i++) {
+                synchronized (Game.getPauseLock()) {
+                    if (Game.isPaused()) {
+                        try {
+                            Game.getPauseLock().wait();
+                        } catch (InterruptedException e) {
+                            Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                        }
+                    }
+                }
                 Thread.sleep(TIME_FOR_STEP);
                 GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = null;
                 moveOneStep();

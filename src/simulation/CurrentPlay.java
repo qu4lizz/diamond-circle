@@ -21,9 +21,23 @@ public class CurrentPlay implements Runnable {
     private static Pair<Integer, Integer> fromField;
     private static Pair<Integer, Integer> toField;
     private static boolean infoChanged;
+    private static volatile boolean paused = false;
     public static final Object lock = new Object();
 
+    private static final Object pauseLock = new Object();
+
     public CurrentPlay() { description = "";}
+
+    public static void pause() {
+        paused = true;
+    }
+
+    public static void resume() {
+        synchronized (pauseLock) {
+            paused = false;
+            pauseLock.notifyAll();
+        }
+    }
 
     public static void setFromField(Pair<Integer, Integer> fromField) {
         CurrentPlay.fromField = fromField;
@@ -32,14 +46,6 @@ public class CurrentPlay implements Runnable {
     public static void setToField(Pair<Integer, Integer> toField) {
         CurrentPlay.toField = toField;
         CurrentPlay.infoChanged = true;
-    }
-
-    public static Pair<Integer, Integer> getFromField() {
-        return fromField;
-    }
-
-    public static Pair<Integer, Integer> getToField() {
-        return toField;
     }
 
     public static void setCurrPlayer(Player currPlayer) {
@@ -66,6 +72,15 @@ public class CurrentPlay implements Runnable {
     @Override
     public void run() {
         while (!Game.isGameOver()) {
+            synchronized (pauseLock) {
+                if (paused) {
+                    try {
+                        pauseLock.wait();
+                    } catch (InterruptedException e) {
+                        Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                    }
+                }
+            }
             try {
                 if (infoChanged) {
                     synchronized (lock) {

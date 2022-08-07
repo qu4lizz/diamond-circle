@@ -108,6 +108,8 @@ public class Entry implements Initializable {
             Main.getStage().setResizable(true);
             Main.getStage().setMinHeight(900);
             Main.getStage().setMinWidth(1280);
+            Thread gameThread = new Thread(game);
+            gameThread.start();
         }
     }
 

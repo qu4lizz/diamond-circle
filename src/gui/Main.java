@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
+    public static String ICON_PATH = "file:resources/images/icon.png";
     private static Stage guiStage;
 
     public static Stage getStage() {
@@ -20,7 +21,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Entry.class.getResource("entry.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
         guiStage.setTitle("Diamond Circle");
-        guiStage.getIcons().add(new Image("file:resources/images/icon.png"));
+        guiStage.getIcons().add(new Image(ICON_PATH));
         guiStage.setScene(scene);
         guiStage.setResizable(false);
         guiStage.show();
