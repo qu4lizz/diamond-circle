@@ -1,6 +1,7 @@
 package simulation;
 
 import gui.Simulation;
+import javafx.application.Platform;
 
 import java.util.Date;
 import java.util.logging.Level;
@@ -46,7 +47,7 @@ public class ExecutionTime implements Runnable {
             try {
                 synchronized (lockExecutionTime) {
                     executionTime = (int)(new Date().getTime() - start) / 1000;
-                    Simulation.executionTimeRefresh(executionTime);
+                    Platform.runLater(() -> Game.getSimulation().executionTimeRefresh(executionTime));
                 }
                 Thread.sleep(Game.TIME_FOR_RELOAD);
             } catch(InterruptedException e) {

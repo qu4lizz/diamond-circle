@@ -4,6 +4,7 @@ import card.*;
 import exceptions.MapDimensionsException;
 import figure.*;
 import gui.Simulation;
+import javafx.application.Platform;
 import map.GameMap;
 import player.Player;
 import utils.Pair;
@@ -17,11 +18,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Game implements Runnable {
-    private static final String SIMULATIONS_PATH = "database/simulations/";
+    public static final String SIMULATIONS_PATH = "database/simulations/";
     private static final String LOGGER_PATH = "database/logger/";
     public static final int TIME_FOR_RELOAD = 1 * 1000;
     private static int numOfPlayers;
     private static int dimensions;
+    private static Simulation simulation;
     private static File[] simulations;
     private static LinkedList<Player> players;
     private static GhostFigure ghost;
@@ -31,9 +33,9 @@ public class Game implements Runnable {
     private static ExecutionTime executionTime;
     public static CurrentPlay currentPlay = new CurrentPlay();
     public static Handler handler;
-
     private static volatile boolean paused = false;
     private static final Object pauseLock = new Object();
+
 
     static {
         try {
@@ -50,6 +52,8 @@ public class Game implements Runnable {
         initializePlayers(playerNames);
     }
 
+    public static void setSimulation(Simulation sim) { simulation = sim; }
+    public static Simulation getSimulation() { return simulation; }
     public static boolean isPaused() { return paused; }
     public static Object getPauseLock() { return pauseLock; }
     public static void pause() { paused = true; }
@@ -75,16 +79,17 @@ public class Game implements Runnable {
     }
     @Override
     public void run() {
+        executionTime = new ExecutionTime();
         Thread liveTime = new Thread(executionTime);
         loadSimulations();
         try {
             GameMap map = new GameMap(dimensions);
-            Simulation.setNumberOfPlayedGames(simulations.length);
         } catch (MapDimensionsException e) {
             Logger.getLogger(Map.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
         deck = new Deck();
         ghost = new GhostFigure();
+        Platform.runLater(() -> simulation.setNumberOfPlayedGames(simulations.length));
 
         liveTime.start();
 
@@ -97,7 +102,6 @@ public class Game implements Runnable {
         }
 
     }
-    // TODO: hashCode for HashSet
     private void startGame() {
         LinkedList<Player> playersTmp = (LinkedList<Player>) players.clone();
         Thread ghostThread = new Thread(ghost);
@@ -125,11 +129,7 @@ public class Game implements Runnable {
                     for (var figure : player.getFigures()) {
                         if (figure.getMovementState() == 0) {
                             synchronized (CurrentPlay.lock) {
-                                try {
-                                    Simulation.cardRefresh(currCard);
-                                } catch (IOException e) {
-                                    Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
-                                }
+                                Platform.runLater(() -> simulation.cardRefresh(currCard));
                                 CurrentPlay.setCurrCard(currCard);
                                 CurrentPlay.setCurrPlayer(player);
                                 CurrentPlay.setCurrFigure(figure);

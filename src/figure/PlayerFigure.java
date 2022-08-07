@@ -125,7 +125,6 @@ public abstract class PlayerFigure extends Figure {
                 }
                 if (objectOnField instanceof Diamond) {
                     diamondBonus++;
-                    System.out.println(this + " picked up diamond");
                 }
                 GameMap.map[getCurrentField().second][getCurrentField().first] = this;
             }

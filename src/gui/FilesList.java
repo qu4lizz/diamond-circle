@@ -7,29 +7,38 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import simulation.Game;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class FilesList{
-
+public class FilesList implements Initializable {
     @FXML
-    private ListView<File> listView;
+    private ListView<String> listView;
 
-    File currentFile;
+    private String currentFile;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        listView.getItems().addAll(Game.getSimulations());
-        //listView.getSelectionModel().selectedItemProperty().addListener(new Mou);
+        HashSet<String> files = new HashSet<>();
+        for (var file : Game.getSimulations()) {
+            files.add(file.getName());
+        }
+        listView.getItems().addAll(files);
 
         listView.setOnMouseClicked(click -> {
             if (click.getClickCount() == 2) {
                 currentFile = listView.getSelectionModel().getSelectedItem();
-                try {
-                    java.awt.Desktop.getDesktop().edit(currentFile);
-                } catch (IOException e) {
-                }
+                EventQueue.invokeLater(() -> {
+                    try {
+                        Runtime.getRuntime().exec(new String[]{"xdg-open", Game.SIMULATIONS_PATH + currentFile});
+                    } catch (IOException e) {
+                        Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                    }
+                });
             }
         });
     }

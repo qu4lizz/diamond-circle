@@ -1,0 +1,11 @@
+Player 2 place: 1 - wqewqe
+	Figure 1 (Running, BLUE) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 24s
+	Figure 2 (Walking, BLUE) - path (4-12-20-28-34) - finished: no - movement time: 4s
+	Figure 3 (Running, BLUE) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 24s
+	Figure 4 (Walking, BLUE) - path (4-12) - finished: no - movement time: 1s
+Player 1 place: 2 - dase
+	Figure 1 (Walking, GREEN) - path (4-12-20-28-34-40-46-38-30-22-16-10) - finished: no - movement time: 11s
+	Figure 2 (Running, GREEN) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 25s
+	Figure 3 (Flying, GREEN) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 25s
+	Figure 4 (Running, GREEN) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 25s
+Execution time: 155s

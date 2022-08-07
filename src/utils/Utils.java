@@ -1,5 +1,7 @@
 package utils;
 
+import java.io.File;
+
 public class Utils {
     public static int calculateNumberField(int xPos, int yPos, int dim) {
         return yPos * dim + xPos + 1;
@@ -16,4 +18,5 @@ public class Utils {
         }
         return false;
     }
+
 }

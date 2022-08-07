@@ -82,4 +82,5 @@ public class GhostFigure extends Figure implements Runnable {
                 GameMap.map[elem.second][elem.first] = null;
         }
     }
+
 }

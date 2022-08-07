@@ -4,6 +4,7 @@ import card.Card;
 import card.NumberCard;
 import figure.PlayerFigure;
 import gui.Simulation;
+import javafx.application.Platform;
 import map.GameMap;
 import player.Player;
 import utils.Pair;
@@ -88,11 +89,10 @@ public class CurrentPlay implements Runnable {
                             description = numberedCardDescription();
                         else
                             description = specialCardDescription();
-                        Simulation.descriptionRefresh(description);
+                        Platform.runLater(() -> Game.getSimulation().descriptionRefresh(description));
                     }
                     infoChanged = false;
                 }
-                System.out.println(description);
                 Thread.sleep(Game.TIME_FOR_RELOAD);
             }
             catch (InterruptedException e) {

@@ -34,16 +34,13 @@ public class Simulation implements Initializable {
     private static String IMAGES_PATH = "resources/images/";
 
     @FXML
-    private static ImageView cardImage;
+    private ImageView cardImage = new ImageView();
 
     @FXML
-    private static Label currNumberOfPlayedGames;
+    private Label currNumberOfPlayedGames;
 
     @FXML
     private ImageView diamondImage;
-
-    @FXML
-    private static Label gameTimeLabel;
 
     @FXML
     private ImageView figure10Image;
@@ -142,6 +139,12 @@ public class Simulation implements Initializable {
     private Label figure9Label;
 
     @FXML
+    private Label gameTimeLabel;
+
+    @FXML
+    private GridPane grid10x10;
+
+    @FXML
     private GridPane grid7x7;
 
     @FXML
@@ -151,22 +154,19 @@ public class Simulation implements Initializable {
     private GridPane grid9x9;
 
     @FXML
-    private GridPane grid10x10;
-
-    @FXML
     private ImageView holeImage;
 
     @FXML
-    private static Label messageLabel;
+    private Label messageLabel;
+
+    @FXML
+    private Label player1outOf2;
 
     @FXML
     private Label player1outOf3;
 
     @FXML
     private Label player1outOf4;
-
-    @FXML
-    private Label player1outOf2;
 
     @FXML
     private Label player2outOf2;
@@ -187,7 +187,7 @@ public class Simulation implements Initializable {
     private Label player4outOf4;
 
     @FXML
-    private static ToggleButton startPauseToggleButton;
+    private ToggleButton startPauseToggleButton;
 
     @FXML
     void figure10OnMouseClicked(MouseEvent event) {
@@ -272,7 +272,7 @@ public class Simulation implements Initializable {
     @FXML
     void listOfFilesOnMouseClicked(MouseEvent event) {
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Entry.class.getResource("entry.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Entry.class.getResource("filesList.fxml"));
         Scene scene = null;
         try {
             scene = new Scene(fxmlLoader.load(), 800, 600);
@@ -311,32 +311,39 @@ public class Simulation implements Initializable {
     }
 
 
-    public static void refreshMap() {
+    public void refreshMapGrid() {
 
     }
 
-    public static void executionTimeRefresh(int time) {
+    public void executionTimeRefresh(int time) {
         gameTimeLabel.setText("Game time: " + time);
     }
 
-    public static void setNumberOfPlayedGames(int num) {
+    public void setNumberOfPlayedGames(int num) {
         currNumberOfPlayedGames.setText("Current number of played games: " + num);
     }
 
-    public static void descriptionRefresh(String message) {
+    public void descriptionRefresh(String message) {
+        messageLabel.setVisible(true);
         messageLabel.setText(message);
     }
 
-    public static void cardRefresh(Card card) throws IOException {
+    public void cardRefresh(Card card) {
         Image image = null;
         if (card instanceof NumberCard) {
-            image = new Image(IMAGES_PATH + "card" + ((NumberCard) card).getValue() + ".png");
+            image = new Image("file:" + IMAGES_PATH + "card" + ((NumberCard) card).getValue() + ".png");
         }
         else if (card instanceof SpecialCard) {
-            image = new Image(IMAGES_PATH + "cardSpec.png");
+            image = new Image("file:" + IMAGES_PATH + "cardSpec.png");
         }
         else {
-            throw new IOException("Couldn't open card file");
+            try {
+                throw new IOException("Couldn't open card file");
+            }
+            catch (IOException e) {
+                Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            }
+
         }
         cardImage.setImage(image);
     }

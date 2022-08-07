@@ -56,11 +56,8 @@ public class GameMap {
                 var row = map[i];
                 for (int j = 0; j < row.length; j++) {
                     var elem = map[j][i];
-                    System.out.format("[%2s]%-15s", Utils.calculateNumberField(j, i, dimensions), elem);
                 }
-                System.out.println();
             }
-            System.out.println("\n");
         }
     }
 }
