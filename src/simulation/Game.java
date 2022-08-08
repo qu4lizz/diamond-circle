@@ -24,7 +24,7 @@ public class Game implements Runnable {
     private static int numOfPlayers;
     private static int dimensions;
     private static Simulation simulation;
-    private static File[] simulations;
+    private static File[] playedSimulations;
     private static LinkedList<Player> players;
     private static GhostFigure ghost;
     private static Deck deck;
@@ -63,7 +63,7 @@ public class Game implements Runnable {
             pauseLock.notifyAll();
         }
     }
-    public static File[] getSimulations() { return simulations; }
+    public static File[] getPlayedSimulations() { return playedSimulations; }
     public static int getDimensions() { return dimensions; }
     public static LinkedList<Player> getPlayers() {
         return players;
@@ -89,7 +89,7 @@ public class Game implements Runnable {
         }
         deck = new Deck();
         ghost = new GhostFigure();
-        Platform.runLater(() -> simulation.setNumberOfPlayedGames(simulations.length));
+        Platform.runLater(() -> simulation.setNumberOfPlayedGames(playedSimulations.length));
 
         liveTime.start();
 
@@ -129,12 +129,12 @@ public class Game implements Runnable {
                     for (var figure : player.getFigures()) {
                         if (figure.getMovementState() == 0) {
                             synchronized (CurrentPlay.lock) {
-                                Platform.runLater(() -> simulation.cardRefresh(currCard));
                                 CurrentPlay.setCurrCard(currCard);
                                 CurrentPlay.setCurrPlayer(player);
                                 CurrentPlay.setCurrFigure(figure);
                                 CurrentPlay.setFromField(figure.getPath().size() == 0 ? GameMap.path.get(0) : figure.getPath().get(figure.getPath().size() - 1));
                                 CurrentPlay.setToField(figure.calculateToField(cardVal));
+                                CurrentPlay.setBonus(figure.getDiamondBonus());
                             }
                             if (startCurrInfoThread) {
                                 currInfo.start();
@@ -155,11 +155,18 @@ public class Game implements Runnable {
                         synchronized (CurrentPlay.lock) {
                             CurrentPlay.setCurrCard(currCard);
                             CurrentPlay.setCurrPlayer(player);
-                            CurrentPlay.setNumOfHoles(holes.size());
+                            CurrentPlay.setHoles(holes);
                         }
                         if (startCurrInfoThread) {
                             currInfo.start();
                             startCurrInfoThread = false;
+                        }
+                        synchronized (pauseLock) {
+                            try {
+                                pauseLock.wait();
+                            } catch (InterruptedException e) {
+                                Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                            }
                         }
                         for (var hole : holes) {
                             Object obj = GameMap.map[hole.second][hole.first];
@@ -167,6 +174,7 @@ public class Game implements Runnable {
                                 PlayerFigure figure = (PlayerFigure) obj;
                                 figure.setMovementState(2);
                                 GameMap.map[hole.second][hole.first] = null;
+                                Platform.runLater(() -> simulation.devourFigure(figure));
                             }
                         }
                         try {
@@ -174,13 +182,16 @@ public class Game implements Runnable {
                         } catch (InterruptedException e) {
                             Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
                         }
+                        Platform.runLater(() -> simulation.removeHolesFromMapGrid());
                     }
                 }
                 if (player.isFinished()) {
                     appendInfo(player, numOfPlayers - playersTmp.size() + 1);
                     playersTmp.remove(player);
-                    if (playersTmp.isEmpty())
+                    if (playersTmp.isEmpty()) {
                         setOver(true);
+                        CurrentPlay.setDescription("Game ended!");
+                    }
                 }
             }
         }
@@ -195,7 +206,8 @@ public class Game implements Runnable {
     }
 
     private void appendInfo(Player player, int position) {
-        gameOutputInfo.append("Player ").append(player.getId()).append(" place: ").append(position).append(" - ").append(player.getName()).append("\n");
+        gameOutputInfo.append("Place ").append(position).append(" - ").append("Player ").append(player.getId()).
+                append(" (").append(player.getName()).append(")\n");
         for (var figure : player.getFigures()) {
             gameOutputInfo.append(figure.info());
         }
@@ -233,7 +245,7 @@ public class Game implements Runnable {
 
     private void loadSimulations() {
         File path = new File(SIMULATIONS_PATH);
-        simulations = path.listFiles();
+        playedSimulations = path.listFiles();
     }
 
 

@@ -17,3 +17,11 @@
 .list-cell:filled:hover {
     -fx-background-color: #B85C38;
 }
+
+.list-view:vertical .virtual-flow .scroll-bar:vertical .track {
+    -fx-background-color: #E0C097;
+}
+
+.list-view:vertical .virtual-flow .scroll-bar:vertical .thumb {
+    -fx-background-color: #784730;
+}

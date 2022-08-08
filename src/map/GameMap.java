@@ -49,15 +49,4 @@ public class GameMap {
             Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
     }
-
-    public static void toStr() {
-        synchronized (lock) {
-            for (int i = 0; i < map.length; i++) {
-                var row = map[i];
-                for (int j = 0; j < row.length; j++) {
-                    var elem = map[j][i];
-                }
-            }
-        }
-    }
 }

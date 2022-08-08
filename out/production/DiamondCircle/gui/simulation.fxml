@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -219,7 +220,7 @@
                                             <items>
                                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #5C3D2E;">
                                                    <children>
-                                                      <GridPane fx:id="grid7x7" alignment="CENTER" gridLinesVisible="true" layoutX="118.0" layoutY="21.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="536.0" style="-fx-background-color: #e0c097;" visible="false" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="118.0" AnchorPane.topAnchor="21.0">
+                                                      <GridPane fx:id="grid7x7" alignment="CENTER" gridLinesVisible="true" layoutX="118.0" layoutY="21.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="536.0" style="-fx-background-color: #e0c097;" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="118.0" AnchorPane.topAnchor="21.0">
                                                         <columnConstraints>
                                                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -1789,37 +1790,27 @@
                                                             </Label>
                                                          </children>
                                                       </GridPane>
-                                                      <ImageView fx:id="figure1Image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure2Image" fitHeight="150.0" fitWidth="200.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure3Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure4Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure5Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure6Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure7Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure8Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure9Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure10Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure11Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure12Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure13Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure14Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure15Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="figure16Image" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="diamondImage" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                                                      <ImageView fx:id="holeImage" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" />
                                                    </children>
                                                 </AnchorPane>
                                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #2D2424;">
                                                    <children>
-                                                      <SplitPane dividerPositions="0.8" orientation="VERTICAL" prefHeight="577.4785493113601" prefWidth="331.1275964963239" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <SplitPane dividerPositions="0.9" orientation="VERTICAL" prefHeight="577.4785493113601" prefWidth="331.1275964963239" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                         <items>
                                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #2D2424;">
                                                                <children>
-                                                                  <ImageView fx:id="cardImage" fitHeight="432.0" fitWidth="300.0" layoutX="16.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                                                  <ImageView fx:id="cardImage" fitHeight="432.0" fitWidth="300.0" layoutX="16.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.790944140381043" AnchorPane.rightAnchor="15.127596496323918">
                                                                      <viewport>
-                                                                        <Rectangle2D height="720.0" minX="300.0" minY="432.0" width="500.0" />
+                                                                        <Rectangle2D />
                                                                      </viewport>
+                                                                     <image>
+                                                                        <Image url="@../../resources/images/card_spec.png" />
+                                                                     </image>
                                                                   </ImageView>
+                                                                  <Label alignment="CENTER" prefHeight="56.0" prefWidth="331.0" text="Current card" textAlignment="CENTER" textFill="#e0c097">
+                                                                     <font>
+                                                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="22.0" />
+                                                                     </font>
+                                                                  </Label>
                                                                </children>
                                                             </AnchorPane>
                                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #2D2424;">

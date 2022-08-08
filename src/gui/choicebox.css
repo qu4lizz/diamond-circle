@@ -1,6 +1,6 @@
- .choice-box .context-menu { -fx-background-color: #2D2424; }
+ .choice-box .context-menu { -fx-background-color: #784730; }
  .choice-box .menu-item:focused { -fx-background-color: #5C3D2E; }
- .choice-box .menu-item > .label { -fx-text-fill: #B85C38;
+ .choice-box .menu-item > .label { -fx-text-fill: #E0C097;
      -fx-pref-width: 240;
      -fx-alignment: center;
      -fx-text-alignment: center;

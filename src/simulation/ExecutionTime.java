@@ -37,8 +37,10 @@ public class ExecutionTime implements Runnable {
         while(!Game.isGameOver()) {
             synchronized (pauseLock) {
                 if (paused) {
+                    int waitTime = (int)(new Date().getTime() - start) / 1000;
                     try {
                         pauseLock.wait();
+                        executionTime -= waitTime; // TODO: SOLVED?
                     } catch (InterruptedException e) {
                         Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
                     }

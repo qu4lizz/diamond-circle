@@ -70,7 +70,7 @@ public class Entry implements Initializable {
     }
 
     @FXML
-    void onMouseClicked(MouseEvent event) {
+    void onMouseClicked(MouseEvent event) throws IOException {
         String player1, player2, player3, player4;
         player1 = player1TextField.getText();
         player2 = player2TextField.getText();
@@ -95,11 +95,12 @@ public class Entry implements Initializable {
             Game game = new Game(numOfPlayers, dimensions, players);
             FXMLLoader fxmlLoader = new FXMLLoader(Simulation.class.getResource("simulation.fxml"));
             Scene scene = null;
-            try {
+            /*try {
                 scene = new Scene(fxmlLoader.load(), 1280, 900);
             } catch (IOException e) {
                 Logger.getLogger(Game.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
-            }
+            }*/
+            scene = new Scene(fxmlLoader.load(), 1280, 900);
             Game.setSimulation(fxmlLoader.getController());
             Thread gameThread = new Thread(game);
             gameThread.start();

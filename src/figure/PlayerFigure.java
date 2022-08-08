@@ -1,6 +1,7 @@
 package figure;
 
 import diamond.Diamond;
+import javafx.application.Platform;
 import map.GameMap;
 import simulation.CurrentPlay;
 import simulation.Game;
@@ -33,10 +34,6 @@ public abstract class PlayerFigure extends Figure {
         this.id = id;
     }
 
-    public void setDiamondBonus(int diamondBonus) {
-        this.diamondBonus = diamondBonus;
-    }
-
     public int getMovementState() {
         return movementState;
     }
@@ -61,16 +58,13 @@ public abstract class PlayerFigure extends Figure {
         return path;
     }
 
-    public int getStep() {
-        return step;
-    }
     protected String infoUtil(String type) {
         StringBuilder str = new StringBuilder("\tFigure " + id + " (" + type + ", " + getColor() + ") - path (");
         int size = getPath().size();
 
         for (int i = 0; i < size; i++) {
             var pos = getPath().get(i);
-            int field = Utils.calculateNumberField(pos.second.intValue(), pos.first.intValue(), GameMap.dimensions);
+            int field = Utils.calculateNumberField(pos.second, pos.first, GameMap.dimensions);
             str.append(field);
             if (i != size - 1)
                 str.append("-");
@@ -93,40 +87,51 @@ public abstract class PlayerFigure extends Figure {
         synchronized (GameMap.lock) {
             if (path.isEmpty()) {
                 path.add(GameMap.path.get(0));
-                GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = this;
+                GameMap.map[path.get(0).second][path.get(0).first] = this;
+                Platform.runLater(() -> Game.getSimulation().moveFigureOnMapGrid(this));
             }
-            for (int i = 0; i < moveVal; i++) {
-                synchronized (Game.getPauseLock()) {
-                    if (Game.isPaused()) {
-                        try {
-                            Game.getPauseLock().wait();
-                        } catch (InterruptedException e) {
-                            Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
-                        }
+        }
+        for (int i = 0; i < moveVal; i++) {
+            synchronized (Game.getPauseLock()) {
+                if (Game.isPaused()) {
+                    try {
+                        Game.getPauseLock().wait();
+                    } catch (InterruptedException e) {
+                        Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
                     }
                 }
+            }
+            synchronized (GameMap.lock) {
                 Thread.sleep(TIME_FOR_STEP);
                 GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = null;
                 moveOneStep();
                 Object objectOnField = null;
-                while (true && movementState != 1) {
-                    var fieldToStep = getCurrentField();
+                Pair<Integer, Integer> fieldToStep = null;
+                while (movementState != 1) {
+                    fieldToStep = getCurrentField();
                     objectOnField = GameMap.map[fieldToStep.second][fieldToStep.first];
                     if (objectOnField instanceof PlayerFigure) {
+                        Platform.runLater(() -> Game.getSimulation().moveFigureOnMapGrid(this));
+                        Thread.sleep(TIME_FOR_STEP);
                         moveOneStep();
                         i++;
                     } else break;
                 }
                 if (movementState == 1) {
                     GameMap.map[getCurrentField().second][getCurrentField().first] = this;
+                    Platform.runLater(() -> Game.getSimulation().moveFigureOnMapGrid(this));
                     Thread.sleep(TIME_FOR_STEP);
+                    Platform.runLater(() -> Game.getSimulation().figureFinished(this));
                     GameMap.map[getCurrentField().second][getCurrentField().first] = null;
                     break;
                 }
                 if (objectOnField instanceof Diamond) {
                     diamondBonus++;
+                    Pair<Integer, Integer> finalFieldToStep = fieldToStep;
+                    Platform.runLater(() -> Game.getSimulation().removeSingleDiamondFromMapGrid(finalFieldToStep));
                 }
                 GameMap.map[getCurrentField().second][getCurrentField().first] = this;
+                Platform.runLater(() -> Game.getSimulation().moveFigureOnMapGrid(this));
             }
         }
         movementTime += new Date().getTime() - start;

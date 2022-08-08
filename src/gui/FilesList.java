@@ -1,14 +1,11 @@
 package gui;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
 import simulation.Game;
 
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashSet;
@@ -24,7 +21,7 @@ public class FilesList implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         HashSet<String> files = new HashSet<>();
-        for (var file : Game.getSimulations()) {
+        for (var file : Game.getPlayedSimulations()) {
             files.add(file.getName());
         }
         listView.getItems().addAll(files);

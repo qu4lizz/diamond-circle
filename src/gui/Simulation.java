@@ -3,10 +3,15 @@ package gui;
 import card.Card;
 import card.NumberCard;
 import card.SpecialCard;
-import figure.GhostFigure;
+import diamond.Diamond;
+import figure.*;
+import javafx.beans.property.ObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
@@ -14,180 +19,108 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import map.GameMap;
 import player.Player;
 import simulation.CurrentPlay;
 import simulation.ExecutionTime;
 import simulation.Game;
+import utils.Pair;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.LinkedList;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Simulation implements Initializable {
 
     private static String IMAGES_PATH = "resources/images/";
-
     @FXML
     private ImageView cardImage = new ImageView();
-
     @FXML
     private Label currNumberOfPlayedGames;
-
-    @FXML
-    private ImageView diamondImage;
-
-    @FXML
-    private ImageView figure10Image;
-
+    private Image diamondImage;
     @FXML
     private Label figure10Label;
-
-    @FXML
-    private ImageView figure11Image;
-
     @FXML
     private Label figure11Label;
-
-    @FXML
-    private ImageView figure12Image;
-
     @FXML
     private Label figure12Label;
-
-    @FXML
-    private ImageView figure13Image;
-
     @FXML
     private Label figure13Label;
-
-    @FXML
-    private ImageView figure14Image;
-
     @FXML
     private Label figure14Label;
-
-    @FXML
-    private ImageView figure15Image;
-
     @FXML
     private Label figure15Label;
-
-    @FXML
-    private ImageView figure16Image;
-
     @FXML
     private Label figure16Label;
-
-    @FXML
-    private ImageView figure1Image;
-
     @FXML
     private Label figure1Label;
-
-    @FXML
-    private ImageView figure2Image;
-
     @FXML
     private Label figure2Label;
-
-    @FXML
-    private ImageView figure3Image;
-
     @FXML
     private Label figure3Label;
-
-    @FXML
-    private ImageView figure4Image;
-
     @FXML
     private Label figure4Label;
-
-    @FXML
-    private ImageView figure5Image;
-
     @FXML
     private Label figure5Label;
-
-    @FXML
-    private ImageView figure6Image;
-
     @FXML
     private Label figure6Label;
-
-    @FXML
-    private ImageView figure7Image;
-
     @FXML
     private Label figure7Label;
-
-    @FXML
-    private ImageView figure8Image;
-
     @FXML
     private Label figure8Label;
-
-    @FXML
-    private ImageView figure9Image;
-
     @FXML
     private Label figure9Label;
-
     @FXML
     private Label gameTimeLabel;
-
     @FXML
     private GridPane grid10x10;
-
     @FXML
     private GridPane grid7x7;
-
     @FXML
     private GridPane grid8x8;
-
     @FXML
     private GridPane grid9x9;
+    private GridPane gridRef;
+    private Image holeImage;
 
-    @FXML
-    private ImageView holeImage;
+    private Image card1;
+    private Image card2;
+    private Image card3;
+    private Image card4;
+    private Image cardSpec;
 
     @FXML
     private Label messageLabel;
 
     @FXML
     private Label player1outOf2;
-
     @FXML
     private Label player1outOf3;
-
     @FXML
     private Label player1outOf4;
-
     @FXML
     private Label player2outOf2;
-
     @FXML
     private Label player2outOf3;
-
     @FXML
     private Label player2outOf4;
-
     @FXML
     private Label player3outOf3;
-
     @FXML
     private Label player3outOf4;
-
     @FXML
     private Label player4outOf4;
-
     @FXML
     private ToggleButton startPauseToggleButton;
+    private LinkedHashMap<PlayerFigure, ImageView> figureImageMap;
+    private HashMap<Pair<Integer, Integer>, ImageView> diamondsImages;
+    private ImageView[] holesImages;
 
     @FXML
     void figure10OnMouseClicked(MouseEvent event) {
@@ -308,11 +241,72 @@ public class Simulation implements Initializable {
         startPauseToggleButton.setText("Pause");
         playersAndFiguresBar(Game.getPlayers());
         mapGuiInit(Game.getDimensions());
+        imagesInit();
     }
 
 
-    public void refreshMapGrid() {
+    public void moveFigureOnMapGrid(PlayerFigure figure) {
+        ImageView currImage = figureImageMap.get(figure);
+        gridRef.getChildren().remove(currImage);
+        var currField = figure.getPath().get(figure.getPath().size() - 1);
+        currImage.fitHeightProperty().bind(gridRef.heightProperty().divide(GameMap.dimensions));
+        currImage.fitWidthProperty().bind(gridRef.widthProperty().divide(GameMap.dimensions));
+        gridRef.add(currImage, currField.second, currField.first);
+        if (!currImage.isVisible())
+            currImage.setVisible(true);
+    }
+    public void figureFinished(PlayerFigure figure) {
+        ImageView currImage = figureImageMap.get(figure);
+        currImage.setVisible(false);
+    }
 
+    public void showDiamondsOnMapGrid(HashSet<Pair<Integer, Integer>> diamondsPos) {
+        diamondsImages = new HashMap<>();
+        for (var pos : diamondsPos) {
+            ImageView imageView = new ImageView(diamondImage);
+            diamondsImages.put(pos, imageView);
+            imageView.fitHeightProperty().bind(gridRef.heightProperty().divide(GameMap.dimensions * 2));
+            imageView.fitWidthProperty().bind(gridRef.widthProperty().divide(GameMap.dimensions * 2));
+            GridPane.setHalignment(imageView, HPos.CENTER);
+            GridPane.setValignment(imageView, VPos.CENTER);
+            gridRef.add(imageView, pos.second, pos.first);
+            imageView.setVisible(true);
+        }
+    }
+    public void removeDiamondsFromMapGrid() {
+        for (var diam : diamondsImages.values()) {
+            diam.setVisible(false);
+        }
+        diamondsImages = null;
+    }
+    public void removeSingleDiamondFromMapGrid(Pair<Integer, Integer> pos) {
+        var img = diamondsImages.get(pos);
+        img.setVisible(false);
+        diamondsImages.remove(pos, img);
+    }
+
+    public void showHolesOnMapGrid(HashSet<Pair<Integer, Integer>> holesPos) {
+        holesImages = new ImageView[holesPos.size()];
+        int i = 0;
+        for (var pos : holesPos) {
+            ImageView imageView = new ImageView(holeImage);
+            holesImages[i] = imageView;
+            imageView.fitHeightProperty().bind(gridRef.heightProperty().divide(GameMap.dimensions));
+            imageView.fitWidthProperty().bind(gridRef.widthProperty().divide(GameMap.dimensions));
+            gridRef.add(imageView, pos.second, pos.first);
+            imageView.setVisible(true);
+            i++;
+        }
+    }
+    public void devourFigure(PlayerFigure figure) {
+        var img = figureImageMap.get(figure);
+        img.setVisible(false);
+    }
+    public void removeHolesFromMapGrid() {
+        for (var hole : holesImages) {
+            hole.setVisible(false);
+        }
+        holesImages = null;
     }
 
     public void executionTimeRefresh(int time) {
@@ -331,33 +325,82 @@ public class Simulation implements Initializable {
     public void cardRefresh(Card card) {
         Image image = null;
         if (card instanceof NumberCard) {
-            image = new Image("file:" + IMAGES_PATH + "card" + ((NumberCard) card).getValue() + ".png");
+            switch (((NumberCard) card).getValue()) {
+                case 1 -> image = card1;
+                case 2 -> image = card2;
+                case 3 -> image = card3;
+                case 4 -> image = card4;
+            }
         }
         else if (card instanceof SpecialCard) {
-            image = new Image("file:" + IMAGES_PATH + "cardSpec.png");
-        }
-        else {
-            try {
-                throw new IOException("Couldn't open card file");
-            }
-            catch (IOException e) {
-                Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
-            }
-
+            image = cardSpec;
         }
         cardImage.setImage(image);
     }
 
+    private void imagesInit() {
+        ImageView[] figuresImages = new ImageView[Player.NUM_OF_FIGURES * Game.getPlayers().size()];
+        figureImageMap = new LinkedHashMap<>();
+        for (int i = 0; i < Player.NUM_OF_FIGURES; i++){
+            for (int j = 0; j < Game.getPlayers().size(); j++) {
+                var player = Game.getPlayers().get(j);
+                var fig = player.getFigures()[i];
+                String imagePath = figureImagePath(fig);
+                figuresImages[j * Player.NUM_OF_FIGURES + i] = new ImageView(new Image(imagePath));
+                figureImageMap.put(fig, figuresImages[j * Player.NUM_OF_FIGURES + i]);
+            }
+        }
+        card1 = new Image("file:" + IMAGES_PATH + "card1.png");
+        card2 = new Image("file:" + IMAGES_PATH + "card2.png");
+        card3 = new Image("file:" + IMAGES_PATH + "card3.png");
+        card4 = new Image("file:" + IMAGES_PATH + "card4.png");
+        cardSpec = new Image("file:" + IMAGES_PATH + "card_spec.png");
+
+        holeImage = new Image("file:" + IMAGES_PATH + "hole.png");
+        diamondImage = new Image("file:" + IMAGES_PATH + "diamond.png");
+    }
+
+    private String figureImagePath(PlayerFigure fig) {
+        StringBuilder imagePath = new StringBuilder(50);
+        imagePath.append("file:" + IMAGES_PATH);
+        if (fig instanceof WalkingFigure)
+            imagePath.append("walking_figure_");
+        else if (fig instanceof RunningFigure)
+            imagePath.append("running_figure_");
+        else if (fig instanceof FlyingFigure)
+            imagePath.append("flying_figure_");
+        switch (fig.getColor()) {
+            case "BLUE" ->
+                    imagePath.append("blue");
+            case "RED" ->
+                    imagePath.append("red");
+            case "GREEN" ->
+                    imagePath.append("green");
+            case "YELLOW" ->
+                    imagePath.append("yellow");
+        }
+        imagePath.append(".png");
+        return imagePath.toString();
+    }
+
     private void mapGuiInit(int dim) {
         switch (dim) {
-            case 7 ->
-                    grid7x7.setVisible(true);
-            case 8 ->
-                    grid8x8.setVisible(true);
-            case 9 ->
-                    grid9x9.setVisible(true);
-            case 10 ->
-                    grid10x10.setVisible(true);
+            case 7 -> {
+                grid7x7.setVisible(true);
+                gridRef = grid7x7;
+            }
+            case 8 -> {
+                grid8x8.setVisible(true);
+                gridRef = grid8x8;
+            }
+            case 9 -> {
+                grid9x9.setVisible(true);
+                gridRef = grid9x9;
+            }
+            case 10 -> {
+                grid10x10.setVisible(true);
+                gridRef = grid10x10;
+            }
         }
     }
 

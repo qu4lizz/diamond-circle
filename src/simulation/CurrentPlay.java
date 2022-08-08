@@ -2,6 +2,7 @@ package simulation;
 
 import card.Card;
 import card.NumberCard;
+import card.SpecialCard;
 import figure.PlayerFigure;
 import gui.Simulation;
 import javafx.application.Platform;
@@ -10,6 +11,8 @@ import player.Player;
 import utils.Pair;
 import utils.Utils;
 
+import javax.swing.*;
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,10 +20,11 @@ public class CurrentPlay implements Runnable {
     private static Player currPlayer;
     private static PlayerFigure currFigure;
     private static Card currCard;
-    private static int numOfHoles;
+    private static HashSet<Pair<Integer, Integer>> holes;
     private static String description;
     private static Pair<Integer, Integer> fromField;
     private static Pair<Integer, Integer> toField;
+    private static int bonus = 0;
     private static boolean infoChanged;
     private static volatile boolean paused = false;
     public static final Object lock = new Object();
@@ -43,32 +47,27 @@ public class CurrentPlay implements Runnable {
     public static void setFromField(Pair<Integer, Integer> fromField) {
         CurrentPlay.fromField = fromField;
     }
-
     public static void setToField(Pair<Integer, Integer> toField) {
         CurrentPlay.toField = toField;
         CurrentPlay.infoChanged = true;
     }
-
     public static void setCurrPlayer(Player currPlayer) {
         CurrentPlay.currPlayer = currPlayer;
     }
-
     public static void setCurrFigure(PlayerFigure currFigure) {
         CurrentPlay.currFigure = currFigure;
     }
-
     public static void setCurrCard(Card currCard) {
         CurrentPlay.currCard = currCard;
         CurrentPlay.infoChanged = true;
     }
-
-    public static void setNumOfHoles(int numOfHoles) {
-        CurrentPlay.numOfHoles = numOfHoles;
+    public static void setHoles(HashSet<Pair<Integer, Integer>> holes) {
+        CurrentPlay.holes = holes;
     }
-
     public static void setDescription(String description) {
         CurrentPlay.description = description;
     }
+    public static void setBonus(int bonus) { CurrentPlay.bonus = bonus; }
 
     @Override
     public void run() {
@@ -89,7 +88,14 @@ public class CurrentPlay implements Runnable {
                             description = numberedCardDescription();
                         else
                             description = specialCardDescription();
-                        Platform.runLater(() -> Game.getSimulation().descriptionRefresh(description));
+                        Platform.runLater(() -> {
+                            Game.getSimulation().cardRefresh(currCard);
+                            if (currCard instanceof SpecialCard) {
+                                Game.getSimulation().showHolesOnMapGrid(holes);
+                                Game.resume();
+                            }
+                            Game.getSimulation().descriptionRefresh(description);
+                        });
                     }
                     infoChanged = false;
                 }
@@ -105,8 +111,8 @@ public class CurrentPlay implements Runnable {
         StringBuilder sb = new StringBuilder(60);
         sb.append("It's ").append(currPlayer.getName()).append(" (").append(currPlayer.getColor()).append(") turn to play.\n");
         int value = GameMap.path.indexOf(toField) - GameMap.path.indexOf(fromField);
-        sb.append("Figure ").append(currFigure.getId()).append(" is moving for ").append(value).
-                append(value == 1 ? " field" : " fields").append(".\n");
+        sb.append("Figure ").append(currFigure.getId()).append(" is moving for ").append(value).append(" (").append(bonus).
+                append(") ").append(value == 1 ? "field" : "fields").append(".\n");
         sb.append(Utils.calculateNumberField(fromField.second, fromField.first, GameMap.dimensions)).append("->").
            append(Utils.calculateNumberField(toField.second, toField.first, GameMap.dimensions));
         return sb.toString();
@@ -114,7 +120,7 @@ public class CurrentPlay implements Runnable {
     private String specialCardDescription() {
         StringBuilder sb = new StringBuilder(40);
         sb.append("It's ").append(currPlayer.getName()).append(" (").append(currPlayer.getColor()).append(") turn to play.\n");
-        sb.append(numOfHoles).append(numOfHoles == 1 ? " hole is" : " holes are").append(" generated");
+        sb.append(holes.size()).append(holes.size() == 1 ? " hole is" : " holes are").append(" generated");
         return sb.toString();
     }
 
