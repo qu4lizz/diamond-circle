@@ -4,14 +4,12 @@ import card.Card;
 import card.NumberCard;
 import card.SpecialCard;
 import figure.PlayerFigure;
-import gui.Simulation;
 import javafx.application.Platform;
 import map.GameMap;
 import player.Player;
 import utils.Pair;
 import utils.Utils;
 
-import javax.swing.*;
 import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -92,9 +90,9 @@ public class CurrentPlay implements Runnable {
                             Game.getSimulation().cardRefresh(currCard);
                             if (currCard instanceof SpecialCard) {
                                 Game.getSimulation().showHolesOnMapGrid(holes);
-                                Game.resume();
                             }
-                            Game.getSimulation().descriptionRefresh(description);
+                            Game.getSimulation().descriptionRefresh(description, currFigure);
+                            Game.resume();
                         });
                     }
                     infoChanged = false;

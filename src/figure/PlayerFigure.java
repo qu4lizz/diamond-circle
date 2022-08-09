@@ -21,7 +21,7 @@ public abstract class PlayerFigure extends Figure {
     private int diamondBonus;
     private String color;
     private ArrayList<Pair<Integer, Integer>> path;
-    private int movementState = 0; // 0 - still going, 1 - finished, 2 - fell into hole
+    private int movementState; // default - haven't started yet, 0 - still going, 1 - finished, 2 - fell into hole
     private int movementTime = 0;
     private Pair<Integer, Integer> toField;
     protected int step = 1;
@@ -32,6 +32,7 @@ public abstract class PlayerFigure extends Figure {
         this.color = color;
         this.path = new ArrayList<>();
         this.id = id;
+        this.movementState = 0;
     }
 
     public int getMovementState() {
@@ -83,7 +84,6 @@ public abstract class PlayerFigure extends Figure {
     public void move(int cardValue) throws InterruptedException {
         int moveVal = (cardValue + diamondBonus) * step;
         diamondBonus = 0;
-        long start = new Date().getTime();
         synchronized (GameMap.lock) {
             if (path.isEmpty()) {
                 path.add(GameMap.path.get(0));
@@ -102,6 +102,7 @@ public abstract class PlayerFigure extends Figure {
                 }
             }
             synchronized (GameMap.lock) {
+                long start = new Date().getTime();
                 Thread.sleep(TIME_FOR_STEP);
                 GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = null;
                 moveOneStep();
@@ -132,9 +133,9 @@ public abstract class PlayerFigure extends Figure {
                 }
                 GameMap.map[getCurrentField().second][getCurrentField().first] = this;
                 Platform.runLater(() -> Game.getSimulation().moveFigureOnMapGrid(this));
+                movementTime += new Date().getTime() - start;
             }
         }
-        movementTime += new Date().getTime() - start;
     }
 
     private void moveOneStep() {
@@ -157,7 +158,7 @@ public abstract class PlayerFigure extends Figure {
             toField = GameMap.path.get(GameMap.path.size() - 1);
         while (GameMap.map[toField.second][toField.first] instanceof PlayerFigure) {
             if (GameMap.path.indexOf(toField) + step < GameMap.path.size())
-                toField = GameMap.path.get(GameMap.path.indexOf(toField) + step);
+                toField = GameMap.path.get(GameMap.path.indexOf(toField) + 1);
             else
                 toField = GameMap.path.get(GameMap.path.size() - 1);
         }

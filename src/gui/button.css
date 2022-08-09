@@ -1,0 +1,15 @@
+.button {
+    -fx-background-color: #2D2424;
+    -fx-background-radius: 30px;
+    -fx-border-color: #E0C097;
+    -fx-border-width: 3;
+    -fx-border-radius: 25px;
+}
+
+.toggle-button {
+    -fx-background-color: #2D2424;
+    -fx-background-radius: 30px;
+    -fx-border-color: #E0C097;
+    -fx-border-width: 3;
+    -fx-border-radius: 25px;
+}

@@ -10,9 +10,13 @@ import java.io.IOException;
 public class Main extends Application {
     public static String ICON_PATH = "file:resources/images/icon.png";
     private static Stage guiStage;
+    private static Image icon;
 
     public static Stage getStage() {
         return guiStage;
+    }
+    public static Image getIcon() {
+        return icon;
     }
 
     @Override
@@ -21,7 +25,8 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Entry.class.getResource("entry.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
         guiStage.setTitle("Diamond Circle");
-        guiStage.getIcons().add(new Image(ICON_PATH));
+        icon = new Image(ICON_PATH);
+        guiStage.getIcons().add(icon);
         guiStage.setScene(scene);
         guiStage.setResizable(false);
         guiStage.show();

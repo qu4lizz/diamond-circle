@@ -27,7 +27,7 @@ public class AlertBox {
         window.setTitle(title);
         window.setMinWidth(350);
         window.setMinHeight(200);
-        window.getIcons().add(new Image(Main.ICON_PATH));
+        window.getIcons().add(Main.getIcon());
 
         Label label = new Label(message);
         label.setTextFill(Color.web("#e0c097"));

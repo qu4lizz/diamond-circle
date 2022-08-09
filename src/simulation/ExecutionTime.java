@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ExecutionTime implements Runnable {
-    private int executionTime;
+    private long executionTime;
     private static final Object lockExecutionTime = new Object();
 
     private static volatile boolean paused = false;
@@ -25,7 +25,7 @@ public class ExecutionTime implements Runnable {
         }
     }
 
-    public int getExecutionTime() {
+    public long getExecutionTime() {
         synchronized (lockExecutionTime) {
             return executionTime;
         }
@@ -34,13 +34,15 @@ public class ExecutionTime implements Runnable {
     @Override
     public void run() {
         long start = new Date().getTime();
+        long waitTime = 0, startWait = 0, completeWait = 0;
         while(!Game.isGameOver()) {
             synchronized (pauseLock) {
                 if (paused) {
-                    int waitTime = (int)(new Date().getTime() - start) / 1000;
                     try {
+                        startWait = new Date().getTime();
                         pauseLock.wait();
-                        executionTime -= waitTime; // TODO: SOLVED?
+                        waitTime = (new Date().getTime() - startWait) / 1000;
+                        completeWait += waitTime;
                     } catch (InterruptedException e) {
                         Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
                     }
@@ -48,7 +50,7 @@ public class ExecutionTime implements Runnable {
             }
             try {
                 synchronized (lockExecutionTime) {
-                    executionTime = (int)(new Date().getTime() - start) / 1000;
+                    executionTime = (new Date().getTime() - start) / 1000 - completeWait;
                     Platform.runLater(() -> Game.getSimulation().executionTimeRefresh(executionTime));
                 }
                 Thread.sleep(Game.TIME_FOR_RELOAD);

@@ -3,6 +3,7 @@ package simulation;
 import card.*;
 import exceptions.MapDimensionsException;
 import figure.*;
+import gui.GameFinished;
 import gui.Simulation;
 import javafx.application.Platform;
 import map.GameMap;
@@ -74,7 +75,7 @@ public class Game implements Runnable {
     public static synchronized void setOver(Boolean bool) {
         over = bool;
     }
-    public static int getExecutionTime() {
+    public static long getExecutionTime() {
         return executionTime.getExecutionTime();
     }
     @Override
@@ -94,13 +95,13 @@ public class Game implements Runnable {
         liveTime.start();
 
         startGame();
-        writeSimulation();
         try {
             liveTime.join();
         } catch (InterruptedException e) {
             Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
         }
-
+        writeSimulation();
+        Platform.runLater(() -> simulation.finishedWindow());
     }
     private void startGame() {
         LinkedList<Player> playersTmp = (LinkedList<Player>) players.clone();
@@ -139,6 +140,13 @@ public class Game implements Runnable {
                             if (startCurrInfoThread) {
                                 currInfo.start();
                                 startCurrInfoThread = false;
+                            }
+                            synchronized (pauseLock) {
+                                try {
+                                    pauseLock.wait();
+                                } catch (InterruptedException e) {
+                                    Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                                }
                             }
                             try {
                                 figure.move(cardVal);
@@ -206,6 +214,7 @@ public class Game implements Runnable {
     }
 
     private void appendInfo(Player player, int position) {
+        GameFinished.addPlayer(player);
         gameOutputInfo.append("Place ").append(position).append(" - ").append("Player ").append(player.getId()).
                 append(" (").append(player.getName()).append(")\n");
         for (var figure : player.getFigures()) {
@@ -253,7 +262,6 @@ public class Game implements Runnable {
         players = new LinkedList<>();
         PlayerFigure.Color[] tmp = PlayerFigure.Color.values();
         LinkedList<PlayerFigure.Color> colors = new LinkedList<>(Arrays.asList(tmp));
-
         Random rand = new Random();
 
         for (int i = 0; i < numOfPlayers; i++) {
@@ -276,5 +284,6 @@ public class Game implements Runnable {
             players.add(player);
             colors.remove(playerColorIndex);
         }
+        Collections.shuffle(players);
     }
 }

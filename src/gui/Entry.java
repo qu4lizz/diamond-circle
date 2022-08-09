@@ -95,20 +95,21 @@ public class Entry implements Initializable {
             Game game = new Game(numOfPlayers, dimensions, players);
             FXMLLoader fxmlLoader = new FXMLLoader(Simulation.class.getResource("simulation.fxml"));
             Scene scene = null;
-            /*try {
+            try {
                 scene = new Scene(fxmlLoader.load(), 1280, 900);
             } catch (IOException e) {
                 Logger.getLogger(Game.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
-            }*/
-            scene = new Scene(fxmlLoader.load(), 1280, 900);
+            }
+            //scene = new Scene(fxmlLoader.load(), 1280, 900);
             Game.setSimulation(fxmlLoader.getController());
             Thread gameThread = new Thread(game);
             gameThread.start();
 
             Main.getStage().setScene(scene);
+            Main.getStage().centerOnScreen();
             Main.getStage().setResizable(true);
             Main.getStage().setMinHeight(900);
-            Main.getStage().setMinWidth(1280);
+            Main.getStage().setMinWidth(1300);
             Main.getStage().setOnCloseRequest(evt -> {
                 System.exit(0);
             });
