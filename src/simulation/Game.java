@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 
 public class Game implements Runnable {
     public static final String SIMULATIONS_PATH = "database/simulations/";
-    private static final String LOGGER_PATH = "database/logger/";
+    public static final String LOGGER_PATH = "database/logger/";
     public static final int TIME_FOR_RELOAD = 1 * 1000;
     private static int numOfPlayers;
     private static int dimensions;
@@ -32,7 +32,7 @@ public class Game implements Runnable {
     private static StringBuilder gameOutputInfo = new StringBuilder();
     private static Boolean over = false;
     private static ExecutionTime executionTime;
-    public static CurrentPlay currentPlay = new CurrentPlay();
+    private static CurrentPlay currentPlay = new CurrentPlay();
     public static Handler handler;
     private static volatile boolean paused = false;
     private static final Object pauseLock = new Object();

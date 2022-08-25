@@ -3,10 +3,10 @@ package figure;
 import diamond.Diamond;
 import javafx.application.Platform;
 import map.GameMap;
-import simulation.CurrentPlay;
 import simulation.Game;
 import utils.Pair;
 import utils.Utils;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;

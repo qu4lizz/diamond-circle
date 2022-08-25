@@ -70,7 +70,7 @@ public class Entry implements Initializable {
     }
 
     @FXML
-    void onMouseClicked(MouseEvent event) throws IOException {
+    void onMouseClicked(MouseEvent event) {
         String player1, player2, player3, player4;
         player1 = player1TextField.getText();
         player2 = player2TextField.getText();
@@ -110,9 +110,7 @@ public class Entry implements Initializable {
             Main.getStage().setResizable(true);
             Main.getStage().setMinHeight(900);
             Main.getStage().setMinWidth(1300);
-            Main.getStage().setOnCloseRequest(evt -> {
-                System.exit(0);
-            });
+            Main.getStage().setOnCloseRequest(evt -> System.exit(0));
         }
     }
 

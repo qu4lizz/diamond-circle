@@ -36,8 +36,8 @@ public class GameFinished implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Label[] playersPlaceLabel = {place1, place2, place3, place4};
-        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < playerOrdered.size(); i++) {
+            StringBuilder sb = new StringBuilder();
             sb.append("Place ").append(i + 1).append(" - ").append("Player ").append(playerOrdered.get(i).getId()).
                     append(" (").append(playerOrdered.get(i).getName()).append(")\n");
             playersPlaceLabel[i].setText(sb.toString());
