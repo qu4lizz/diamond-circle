@@ -1,0 +1,11 @@
+Place 1 - Player 2 (3214)
+	Figure 1 (Running, YELLOW) - path (4-12-20-28-34-40-46) - finished: no - movement time: 6s
+	Figure 2 (Walking, YELLOW) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 3 (Running, YELLOW) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 4 (Flying, YELLOW) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+Place 2 - Player 1 (fas12)
+	Figure 1 (Flying, RED) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 2 (Walking, RED) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 3 (Walking, RED) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18) - finished: no - movement time: 20s
+	Figure 4 (Walking, RED) - path (4-12-20-28-34-40-46-38-30-22) - finished: no - movement time: 9s
+Execution time: 264s

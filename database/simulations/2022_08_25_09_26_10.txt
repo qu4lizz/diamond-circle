@@ -1,0 +1,21 @@
+Place 1 - Player 4 (4)
+	Figure 1 (Walking, BLUE) - path (4-12-20-28) - finished: no - movement time: 3s
+	Figure 2 (Flying, BLUE) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 3 (Running, BLUE) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18) - finished: no - movement time: 20s
+	Figure 4 (Walking, BLUE) - path (4-12-20-28-34-40-46-38-30) - finished: no - movement time: 8s
+Place 2 - Player 2 (2)
+	Figure 1 (Flying, RED) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 2 (Walking, RED) - path (4-12-20-28-34-40-46-38-30-22) - finished: no - movement time: 9s
+	Figure 3 (Walking, RED) - path (4-12) - finished: no - movement time: 1s
+	Figure 4 (Running, RED) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+Place 3 - Player 1 (1)
+	Figure 1 (Walking, GREEN) - path (4-12-20-28-34) - finished: no - movement time: 4s
+	Figure 2 (Walking, GREEN) - path (4-12-20-28-34) - finished: no - movement time: 4s
+	Figure 3 (Flying, GREEN) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 4 (Running, GREEN) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+Place 4 - Player 3 (3)
+	Figure 1 (Flying, YELLOW) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 2 (Flying, YELLOW) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 3 (Walking, YELLOW) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 4 (Running, YELLOW) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+Execution time: 422s

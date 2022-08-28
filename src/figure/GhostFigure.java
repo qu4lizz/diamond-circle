@@ -6,6 +6,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import diamond.Diamond;
+import gui.Main;
+import javafx.application.Platform;
 import map.GameMap;
 import utils.Pair;
 import simulation.Game;
@@ -19,37 +21,64 @@ public class GhostFigure extends Figure implements Runnable {
         MAX_DIAMONDS = GameMap.dimensions;
     }
 
+    private static volatile boolean paused = false;
+    private static final Object pauseLock = new Object();
+
+    public static void pause() {
+        paused = true;
+    }
+
+    public static void resume() {
+        synchronized (pauseLock) {
+            paused = false;
+            pauseLock.notifyAll();
+        }
+    }
+
+
     @Override
     public void run() {
         while (!Game.isGameOver()) {
+            synchronized (pauseLock) {
+                if (paused) {
+                    try {
+                        pauseLock.wait();
+                    } catch (InterruptedException e) {
+                        Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
+                    }
+                }
+            }
             try {
                 Thread.sleep(TIME_FOR_ACTION);
             } catch (InterruptedException e) {
-                Logger.getLogger(Thread.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
             }
-            addDiamonds();
+            synchronized (GameMap.lock) {
+                addDiamonds();
+            }
         }
-        removeDiamonds();
+        synchronized (GameMap.lock) {
+            removeDiamonds();
+        }
     }
 
     public void addDiamonds() {
         Random rand = new Random();
         int numOfDiamonds = rand.nextInt((MAX_DIAMONDS - MIN_DIAMONDS) + 1) + MIN_DIAMONDS;
-        synchronized (GameMap.lock) {
-            removeDiamonds();
-            diamondPositions = new HashSet<>();
-            while (diamondPositions.size() != numOfDiamonds) {
-                var elem = GameMap.path.get(rand.nextInt(GameMap.path.size()));
-                if (!diamondPositions.contains(elem) && elem != GameMap.path.get(0)) {
-                    Object obj = GameMap.map[elem.second][elem.first];
-                    if (!(obj instanceof PlayerFigure)) {
-                        diamondPositions.add(elem);
-                        GameMap.map[elem.second][elem.first] = new Diamond();
-                    }
+        removeDiamonds();
+        diamondPositions = new HashSet<>();
+        while (diamondPositions.size() != numOfDiamonds) {
+            var elem = GameMap.path.get(rand.nextInt(GameMap.path.size()));
+            if (!diamondPositions.contains(elem) && elem != GameMap.path.get(0) && elem != GameMap.path.get(GameMap.path.size() - 1)) {
+                Object obj = GameMap.map[elem.second][elem.first];
+                if (!(obj instanceof PlayerFigure)) {
+                    diamondPositions.add(elem);
+                    GameMap.map[elem.second][elem.first] = new Diamond();
                 }
             }
         }
-        GameMap.toStr();
+        Platform.runLater(() -> Game.getSimulation().showDiamondsOnMapGrid(diamondPositions));
+
     }
 
     private void removeDiamonds() {
@@ -57,5 +86,8 @@ public class GhostFigure extends Figure implements Runnable {
             if (GameMap.map[elem.second][elem.first] instanceof Diamond)
                 GameMap.map[elem.second][elem.first] = null;
         }
+        if (!diamondPositions.isEmpty())
+            Platform.runLater(() -> Game.getSimulation().removeDiamondsFromMapGrid());
     }
+
 }

@@ -1,12 +1,17 @@
 package figure;
 
 import diamond.Diamond;
+import gui.Main;
+import javafx.application.Platform;
 import map.GameMap;
-import simulation.CurrentPlay;
+import simulation.Game;
 import utils.Pair;
 import utils.Utils;
+
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public abstract class PlayerFigure extends Figure {
     public enum Color {
@@ -17,7 +22,7 @@ public abstract class PlayerFigure extends Figure {
     private int diamondBonus;
     private String color;
     private ArrayList<Pair<Integer, Integer>> path;
-    private int movementState = 0; // 0 - still going, 1 - finished, 2 - fell into hole
+    private int movementState; // default - haven't started yet, 0 - still going, 1 - finished, 2 - fell into hole
     private int movementTime = 0;
     private Pair<Integer, Integer> toField;
     protected int step = 1;
@@ -28,10 +33,7 @@ public abstract class PlayerFigure extends Figure {
         this.color = color;
         this.path = new ArrayList<>();
         this.id = id;
-    }
-
-    public void setDiamondBonus(int diamondBonus) {
-        this.diamondBonus = diamondBonus;
+        this.movementState = 0;
     }
 
     public int getMovementState() {
@@ -58,16 +60,13 @@ public abstract class PlayerFigure extends Figure {
         return path;
     }
 
-    public int getStep() {
-        return step;
-    }
     protected String infoUtil(String type) {
         StringBuilder str = new StringBuilder("\tFigure " + id + " (" + type + ", " + getColor() + ") - path (");
         int size = getPath().size();
 
         for (int i = 0; i < size; i++) {
             var pos = getPath().get(i);
-            int field = Utils.calculateNumberField(pos.second.intValue(), pos.first.intValue(), GameMap.dimensions);
+            int field = Utils.calculateNumberField(pos.second, pos.first, GameMap.dimensions);
             str.append(field);
             if (i != size - 1)
                 str.append("-");
@@ -86,39 +85,58 @@ public abstract class PlayerFigure extends Figure {
     public void move(int cardValue) throws InterruptedException {
         int moveVal = (cardValue + diamondBonus) * step;
         diamondBonus = 0;
-        long start = new Date().getTime();
         synchronized (GameMap.lock) {
             if (path.isEmpty()) {
                 path.add(GameMap.path.get(0));
-                GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = this;
+                GameMap.map[path.get(0).second][path.get(0).first] = this;
+                Platform.runLater(() -> Game.getSimulation().moveFigureOnMapGrid(this));
             }
-            for (int i = 0; i < moveVal; i++) {
+        }
+        for (int i = 0; i < moveVal; i++) {
+            synchronized (Game.getPauseLock()) {
+                if (Game.isPaused()) {
+                    try {
+                        Game.getPauseLock().wait();
+                    } catch (InterruptedException e) {
+                        Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
+                    }
+                }
+            }
+            synchronized (GameMap.lock) {
+                long start = new Date().getTime();
                 Thread.sleep(TIME_FOR_STEP);
                 GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = null;
                 moveOneStep();
                 Object objectOnField = null;
-                while (true && movementState != 1) {
-                    var fieldToStep = getCurrentField();
+                Pair<Integer, Integer> fieldToStep = null;
+                while (movementState != 1) {
+                    fieldToStep = getCurrentField();
                     objectOnField = GameMap.map[fieldToStep.second][fieldToStep.first];
                     if (objectOnField instanceof PlayerFigure) {
+                        Platform.runLater(() -> Game.getSimulation().moveFigureOnMapGrid(this));
+                        Thread.sleep(TIME_FOR_STEP);
                         moveOneStep();
                         i++;
                     } else break;
                 }
                 if (movementState == 1) {
                     GameMap.map[getCurrentField().second][getCurrentField().first] = this;
+                    Platform.runLater(() -> Game.getSimulation().moveFigureOnMapGrid(this));
                     Thread.sleep(TIME_FOR_STEP);
+                    Platform.runLater(() -> Game.getSimulation().figureFinished(this));
                     GameMap.map[getCurrentField().second][getCurrentField().first] = null;
                     break;
                 }
                 if (objectOnField instanceof Diamond) {
                     diamondBonus++;
-                    System.out.println(this + " picked up diamond");
+                    Pair<Integer, Integer> finalFieldToStep = fieldToStep;
+                    Platform.runLater(() -> Game.getSimulation().removeSingleDiamondFromMapGrid(finalFieldToStep));
                 }
                 GameMap.map[getCurrentField().second][getCurrentField().first] = this;
+                Platform.runLater(() -> Game.getSimulation().moveFigureOnMapGrid(this));
+                movementTime += new Date().getTime() - start;
             }
         }
-        movementTime += new Date().getTime() - start;
     }
 
     private void moveOneStep() {
@@ -141,7 +159,7 @@ public abstract class PlayerFigure extends Figure {
             toField = GameMap.path.get(GameMap.path.size() - 1);
         while (GameMap.map[toField.second][toField.first] instanceof PlayerFigure) {
             if (GameMap.path.indexOf(toField) + step < GameMap.path.size())
-                toField = GameMap.path.get(GameMap.path.indexOf(toField) + step);
+                toField = GameMap.path.get(GameMap.path.indexOf(toField) + 1);
             else
                 toField = GameMap.path.get(GameMap.path.size() - 1);
         }

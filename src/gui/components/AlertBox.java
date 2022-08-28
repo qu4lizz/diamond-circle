@@ -1,5 +1,6 @@
 package gui.components;
 
+import gui.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,7 +27,7 @@ public class AlertBox {
         window.setTitle(title);
         window.setMinWidth(350);
         window.setMinHeight(200);
-        window.getIcons().add(new Image("file:resources/images/icon.png"));
+        window.getIcons().add(Main.getIcon());
 
         Label label = new Label(message);
         label.setTextFill(Color.web("#e0c097"));

@@ -10,17 +10,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import simulation.Game;
 import utils.Utils;
-
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Array;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -97,17 +94,23 @@ public class Entry implements Initializable {
         else {
             Game game = new Game(numOfPlayers, dimensions, players);
             FXMLLoader fxmlLoader = new FXMLLoader(Simulation.class.getResource("simulation.fxml"));
-            Scene scene = null;
             try {
-                scene = new Scene(fxmlLoader.load(), 1280, 900);
+                Scene scene = new Scene(fxmlLoader.load(), 1280, 900);
+                Game.setSimulation(fxmlLoader.getController());
+
+                Thread gameThread = new Thread(game);
+                gameThread.start();
+
+                Main.getStage().setScene(scene);
+                Main.getStage().centerOnScreen();
+                Main.getStage().setResizable(true);
+                Main.getStage().setMinHeight(900);
+                Main.getStage().setMinWidth(1300);
+                Main.getStage().setOnCloseRequest(evt -> System.exit(0));
             } catch (IOException e) {
-                Logger.getLogger(Game.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
             }
 
-            Main.getStage().setScene(scene);
-            Main.getStage().setResizable(true);
-            Main.getStage().setMinHeight(900);
-            Main.getStage().setMinWidth(1280);
         }
     }
 

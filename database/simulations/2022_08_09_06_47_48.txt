@@ -1,0 +1,21 @@
+Place 1 - Player 4 (Goran)
+	Figure 1 (Flying, RED) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 2 (Walking, RED) - path (4-12-20) - finished: no - movement time: 2s
+	Figure 3 (Running, RED) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 4 (Running, RED) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+Place 2 - Player 2 (Dijana)
+	Figure 1 (Running, YELLOW) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 2 (Running, YELLOW) - path (4-12-20-28-34-40-46-38-30) - finished: no - movement time: 8s
+	Figure 3 (Walking, YELLOW) - path (4-12-20-28-34-40) - finished: no - movement time: 5s
+	Figure 4 (Flying, YELLOW) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+Place 3 - Player 3 (Nikola)
+	Figure 1 (Walking, GREEN) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 22s
+	Figure 2 (Running, GREEN) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18) - finished: no - movement time: 20s
+	Figure 3 (Walking, GREEN) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+	Figure 4 (Walking, GREEN) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+Place 4 - Player 1 (Igor)
+	Figure 1 (Walking, BLUE) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31) - finished: no - movement time: 17s
+	Figure 2 (Walking, BLUE) - path (4-12-20) - finished: no - movement time: 2s
+	Figure 3 (Walking, BLUE) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32) - finished: no - movement time: 22s
+	Figure 4 (Flying, BLUE) - path (4-12-20-28-34-40-46-38-30-22-16-10-11-19-27-33-39-31-23-17-18-26-32-24-25) - finished: yes - movement time: 23s
+Execution time: 446s
