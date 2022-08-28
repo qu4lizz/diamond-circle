@@ -1,6 +1,7 @@
 package figure;
 
 import diamond.Diamond;
+import gui.Main;
 import javafx.application.Platform;
 import map.GameMap;
 import simulation.Game;
@@ -97,7 +98,7 @@ public abstract class PlayerFigure extends Figure {
                     try {
                         Game.getPauseLock().wait();
                     } catch (InterruptedException e) {
-                        Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                        Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
                     }
                 }
             }

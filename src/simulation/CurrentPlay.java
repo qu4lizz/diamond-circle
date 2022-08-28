@@ -4,6 +4,7 @@ import card.Card;
 import card.NumberCard;
 import card.SpecialCard;
 import figure.PlayerFigure;
+import gui.Main;
 import javafx.application.Platform;
 import map.GameMap;
 import player.Player;
@@ -75,7 +76,7 @@ public class CurrentPlay implements Runnable {
                     try {
                         pauseLock.wait();
                     } catch (InterruptedException e) {
-                        Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                        Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
                     }
                 }
             }
@@ -100,7 +101,7 @@ public class CurrentPlay implements Runnable {
                 Thread.sleep(Game.TIME_FOR_RELOAD);
             }
             catch (InterruptedException e) {
-                Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
             }
         }
     }

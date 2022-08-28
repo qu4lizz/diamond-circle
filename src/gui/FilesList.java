@@ -33,7 +33,7 @@ public class FilesList implements Initializable {
                     try {
                         Runtime.getRuntime().exec(new String[]{"xdg-open", Game.SIMULATIONS_PATH + currentFile});
                     } catch (IOException e) {
-                        Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                        Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
                     }
                 });
             }

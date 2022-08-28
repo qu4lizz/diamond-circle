@@ -1,18 +1,16 @@
 package map;
 
 import exceptions.MapDimensionsException;
+import gui.Main;
 import utils.Pair;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class GameMap {
-    public static final String MAPS_PATH = "resources/map/";
+    public static final String MAPS_PATH = "resources" + File.separator + "map" + File.separator;
     public static final int MIN_DIMENSIONS = 7;
     public static final int MAX_DIMENSIONS = 10;
     public static final Object lock = new Object();
@@ -41,9 +39,9 @@ public class GameMap {
             }
             in.close();
         } catch (FileNotFoundException e) {
-            Logger.getLogger(FileNotFoundException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         } catch (IOException e) {
-            Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         }
     }
 }

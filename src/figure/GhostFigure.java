@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import diamond.Diamond;
+import gui.Main;
 import javafx.application.Platform;
 import map.GameMap;
 import utils.Pair;
@@ -43,14 +44,14 @@ public class GhostFigure extends Figure implements Runnable {
                     try {
                         pauseLock.wait();
                     } catch (InterruptedException e) {
-                        Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                        Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
                     }
                 }
             }
             try {
                 Thread.sleep(TIME_FOR_ACTION);
             } catch (InterruptedException e) {
-                Logger.getLogger(Thread.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
             }
             synchronized (GameMap.lock) {
                 addDiamonds();

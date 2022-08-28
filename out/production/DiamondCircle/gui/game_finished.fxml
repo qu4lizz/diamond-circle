@@ -11,22 +11,22 @@
    <children>
       <VBox alignment="CENTER" layoutY="76.0" prefHeight="185.0" prefWidth="600.0" AnchorPane.bottomAnchor="139.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="76.0">
          <children>
-            <Label fx:id="place1" prefHeight="51.0" prefWidth="600.0" text="Label">
+            <Label fx:id="place1" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="Label" textAlignment="CENTER" visible="false">
                <font>
                   <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="place2" prefHeight="51.0" prefWidth="600.0" text="Label">
+            <Label fx:id="place2" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="Label" textAlignment="CENTER" visible="false">
                <font>
                   <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="place3" prefHeight="51.0" prefWidth="600.0" text="Label">
+            <Label fx:id="place3" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="Label" textAlignment="CENTER" visible="false">
                <font>
                   <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="place4" prefHeight="51.0" prefWidth="600.0" text="Label">
+            <Label fx:id="place4" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="Label" textAlignment="CENTER" visible="false">
                <font>
                   <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
                </font>

@@ -42,6 +42,7 @@ public class GameFinished implements Initializable{
                     append(" (").append(playerOrdered.get(i).getName()).append(")\n");
             playersPlaceLabel[i].setText(sb.toString());
             playersPlaceLabel[i].setTextFill(Color.web(Simulation.colorHexByName(playerOrdered.get(i).getColor())));
+            playersPlaceLabel[i].setVisible(true);
         }
 
     }

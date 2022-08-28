@@ -10,7 +10,7 @@ public class Deck {
 
     public Deck() {
         deck = new LinkedList<>();
-        int specCardNum = SIZE - EACH_OF_NUMBERED_CARDS * 4;
+        int specCardNum = SIZE - EACH_OF_NUMBERED_CARDS * (NumberCard.HIGHEST_CARD - NumberCard.LOWEST_CARD + 1);
 
         for (int i = NumberCard.LOWEST_CARD; i <= NumberCard.HIGHEST_CARD; i++) {
             for (int j = 0; j < EACH_OF_NUMBERED_CARDS; j++) {

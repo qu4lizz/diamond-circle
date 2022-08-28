@@ -1,5 +1,6 @@
 package simulation;
 
+import gui.Main;
 import gui.Simulation;
 import javafx.application.Platform;
 
@@ -44,7 +45,7 @@ public class ExecutionTime implements Runnable {
                         waitTime = (new Date().getTime() - startWait) / 1000;
                         completeWait += waitTime;
                     } catch (InterruptedException e) {
-                        Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                        Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
                     }
                 }
             }
@@ -55,7 +56,7 @@ public class ExecutionTime implements Runnable {
                 }
                 Thread.sleep(Game.TIME_FOR_RELOAD);
             } catch(InterruptedException e) {
-                Logger.getLogger(Thread.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
             }
         }
     }

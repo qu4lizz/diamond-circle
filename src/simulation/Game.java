@@ -4,6 +4,7 @@ import card.*;
 import exceptions.MapDimensionsException;
 import figure.*;
 import gui.GameFinished;
+import gui.Main;
 import gui.Simulation;
 import javafx.application.Platform;
 import map.GameMap;
@@ -13,14 +14,11 @@ import utils.Pair;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.logging.FileHandler;
-import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Game implements Runnable {
-    public static final String SIMULATIONS_PATH = "database/simulations/";
-    public static final String LOGGER_PATH = "database/logger/";
+    public static final String SIMULATIONS_PATH = "database" + File.separator + "simulations" + File.separator;
     public static final int TIME_FOR_RELOAD = 1 * 1000;
     private static int numOfPlayers;
     private static int dimensions;
@@ -33,19 +31,11 @@ public class Game implements Runnable {
     private static Boolean over = false;
     private static ExecutionTime executionTime;
     private static CurrentPlay currentPlay = new CurrentPlay();
-    public static Handler handler;
     private static volatile boolean paused = false;
     private static final Object pauseLock = new Object();
 
 
-    static {
-        try {
-            handler = new FileHandler(LOGGER_PATH + "simulation.log");
-            Logger.getLogger(Game.class.getName()).addHandler(handler);
-        } catch (IOException e) {
-            Logger.getLogger(Game.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
-        }
-    }
+
 
     public Game(int numOfPlayers, int dimensions, String[] playerNames) {
         this.numOfPlayers = numOfPlayers;
@@ -86,7 +76,7 @@ public class Game implements Runnable {
         try {
             GameMap map = new GameMap(dimensions);
         } catch (MapDimensionsException e) {
-            Logger.getLogger(Map.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         }
         deck = new Deck();
         ghost = new GhostFigure();
@@ -98,7 +88,7 @@ public class Game implements Runnable {
         try {
             liveTime.join();
         } catch (InterruptedException e) {
-            Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         }
         writeSimulation();
         Platform.runLater(() -> simulation.finishedWindow());
@@ -117,7 +107,7 @@ public class Game implements Runnable {
                         try {
                             pauseLock.wait();
                         } catch (InterruptedException e) {
-                            Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
                         }
                     }
                 }
@@ -145,13 +135,13 @@ public class Game implements Runnable {
                                 try {
                                     pauseLock.wait();
                                 } catch (InterruptedException e) {
-                                    Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                                    Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
                                 }
                             }
                             try {
                                 figure.move(cardVal);
                             } catch (InterruptedException e) {
-                                Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                                Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
                             }
                             break;
                         }
@@ -173,7 +163,7 @@ public class Game implements Runnable {
                             try {
                                 pauseLock.wait();
                             } catch (InterruptedException e) {
-                                Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                                Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
                             }
                         }
                         for (var hole : holes) {
@@ -188,7 +178,7 @@ public class Game implements Runnable {
                         try {
                             Thread.sleep(SpecialCard.TIME_FOR_HOLES);
                         } catch (InterruptedException e) {
-                            Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+                            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
                         }
                         Platform.runLater(() -> simulation.removeHolesFromMapGrid());
                     }
@@ -208,7 +198,7 @@ public class Game implements Runnable {
             currInfo.join();
             CurrentPlay.setDescription("");
         } catch (InterruptedException e) {
-            Logger.getLogger(InterruptedException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         }
 
     }
@@ -246,9 +236,9 @@ public class Game implements Runnable {
             gameInfoOutput.write(gameOutputInfo.toString());
             gameInfoOutput.close();
         } catch (FileNotFoundException e) {
-            Logger.getLogger(FileNotFoundException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         } catch (IOException e) {
-            Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         }
     }
 

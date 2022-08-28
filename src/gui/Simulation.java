@@ -26,6 +26,7 @@ import simulation.ExecutionTime;
 import simulation.Game;
 import utils.Pair;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -34,7 +35,7 @@ import java.util.logging.Logger;
 
 public class Simulation implements Initializable {
 
-    private static final String IMAGES_PATH = "resources/images/";
+    private static final String IMAGES_PATH = "resources" + File.separator + "images" + File.separator;
     @FXML
     private ImageView cardImage = new ImageView();
     @FXML
@@ -136,7 +137,7 @@ public class Simulation implements Initializable {
         try {
             scene = new Scene(fxmlLoader.load(), 450, 550);
         } catch (IOException e) {
-            Logger.getLogger(Game.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         }
 
         window.setTitle("Figure " + id + " info");
@@ -218,7 +219,7 @@ public class Simulation implements Initializable {
         try {
             scene = new Scene(fxmlLoader.load(), 800, 600);
         } catch (IOException e) {
-            Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         }
         stage.setTitle("Simulation files");
         stage.getIcons().add(Main.getIcon());
@@ -259,7 +260,7 @@ public class Simulation implements Initializable {
         try {
             scene = new Scene(fxmlLoader.load(), 600, 400);
         } catch (IOException e) {
-            Logger.getLogger(Game.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         }
         Main.getStage().hide();
         window.setTitle("Diamond Circle");
@@ -267,6 +268,7 @@ public class Simulation implements Initializable {
         window.setScene(scene);
         window.setResizable(false);
         window.show();
+        Main.handler.close();
     }
 
     public void moveFigureOnMapGrid(PlayerFigure figure) {

@@ -1,16 +1,15 @@
 package card;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import gui.Main;
+
+import java.io.*;
 import java.util.Map;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class SpecialCard extends Card {
-    private static final String NUMBER_PATH = "resources/numberOfMaximumHoles.txt";
+    private static final String NUMBER_PATH = "resources" + File.separator + "numberOfMaximumHoles.txt";
     public static final int TIME_FOR_HOLES = 2 * 1000;
     private static int numberOfHoles;
 
@@ -30,9 +29,9 @@ public class SpecialCard extends Card {
             numberOfHoles = Integer.parseInt(s);
             br.close();
         } catch (FileNotFoundException e) {
-            Logger.getLogger(FileNotFoundException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         } catch (IOException e) {
-            Logger.getLogger(IOException.class.getName()).log(Level.WARNING, e.fillInStackTrace().toString());
+            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         }
     }
 }
