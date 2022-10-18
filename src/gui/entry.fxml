@@ -17,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Entry">
    <children>
-      <SplitPane dividerPositions="0.4" prefHeight="400.0" prefWidth="600.0" stylesheets="file:/mnt/windows/projects/Java/DiamondCircle/src/gui/splitpaneV.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.4" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../resources/css/splitpaneV.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="399.0" minWidth="271.0" prefHeight="399.0" prefWidth="271.0" style="-fx-background-color: #2d2424;">
                <children>
@@ -50,14 +50,14 @@
                         <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="22.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="numOfPlayersChoiceBox" layoutX="159.0" layoutY="134.0" prefHeight="30.0" prefWidth="279.0" stylesheets="file:/mnt/windows/projects/Java/DiamondCircle/src/gui/choicebox.css" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="158.0" />
+                  <ChoiceBox fx:id="numOfPlayersChoiceBox" layoutX="159.0" layoutY="134.0" prefHeight="30.0" prefWidth="279.0" stylesheets="@../../../../resources/css/choicebox.css" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="158.0" />
                   <Label alignment="CENTER" layoutX="122.0" layoutY="474.0" prefHeight="26.0" prefWidth="223.0" text="Dimensions of map" textAlignment="CENTER" textFill="#e0c097" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="122.0">
                      <font>
                         <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="22.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="dimensionsChoiceBox" layoutX="159.0" layoutY="512.0" prefHeight="27.0" prefWidth="149.0" stylesheets="file:/mnt/windows/projects/Java/DiamondCircle/src/gui/choicebox.css" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="158.16438459587653" />
-                  <Button fx:id="startGameButton" alignment="CENTER" layoutX="148.0" layoutY="684.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" prefHeight="56.0" prefWidth="172.0" stylesheets="file:/mnt/windows/projects/Java/DiamondCircle/src/gui/button.css" text="Start game" textAlignment="CENTER" textFill="#e0c097" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="147.0">
+                  <ChoiceBox fx:id="dimensionsChoiceBox" layoutX="159.0" layoutY="512.0" prefHeight="27.0" prefWidth="149.0" stylesheets="@../../../../resources/css/choicebox.css" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="158.16438459587653" />
+                  <Button fx:id="startGameButton" alignment="CENTER" layoutX="148.0" layoutY="684.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" prefHeight="56.0" prefWidth="172.0" stylesheets="@../../../../resources/css/button.css" text="Start game" textAlignment="CENTER" textFill="#e0c097" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="147.0">
                      <font>
                         <Font name="JetBrains Mono Extra Bold Nerd Font Complete" size="20.0" />
                      </font>

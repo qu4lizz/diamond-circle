@@ -39,20 +39,13 @@ public class GhostFigure extends Figure implements Runnable {
     @Override
     public void run() {
         while (!Game.isGameOver()) {
-            synchronized (pauseLock) {
-                if (paused) {
-                    try {
-                        pauseLock.wait();
-                    } catch (InterruptedException e) {
-                        Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
-                    }
-                }
-            }
+            checkAndPause();
             try {
                 Thread.sleep(TIME_FOR_ACTION);
             } catch (InterruptedException e) {
                 Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
             }
+            checkAndPause();
             synchronized (GameMap.lock) {
                 addDiamonds();
             }
@@ -61,7 +54,17 @@ public class GhostFigure extends Figure implements Runnable {
             removeDiamonds();
         }
     }
-
+    private void checkAndPause() {
+        synchronized (pauseLock) {
+            if (paused) {
+                try {
+                    pauseLock.wait();
+                } catch (InterruptedException e) {
+                    Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
+                }
+            }
+        }
+    }
     public void addDiamonds() {
         Random rand = new Random();
         int numOfDiamonds = rand.nextInt((MAX_DIAMONDS - MIN_DIAMONDS) + 1) + MIN_DIAMONDS;
