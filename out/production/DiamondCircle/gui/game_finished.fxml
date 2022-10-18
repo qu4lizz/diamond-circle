@@ -41,7 +41,7 @@
             <Font name="JetBrains Mono Extra Bold Nerd Font Complete" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="exitButton" alignment="CENTER" layoutX="205.0" layoutY="273.0" mnemonicParsing="false" onMouseClicked="#exitOnMouseClicked" prefHeight="86.0" prefWidth="190.0" stylesheets="file:/mnt/windows/projects/Java/DiamondCircle/src/gui/button.css" text="Exit" textAlignment="CENTER" textFill="#e0c097">
+      <Button fx:id="exitButton" alignment="CENTER" layoutX="205.0" layoutY="273.0" mnemonicParsing="false" onMouseClicked="#exitOnMouseClicked" prefHeight="86.0" prefWidth="190.0" stylesheets="@../../../../resources/css/button.css" text="Exit" textAlignment="CENTER" textFill="#e0c097">
          <font>
             <Font name="JetBrains Mono Extra Bold Nerd Font Complete" size="25.0" />
          </font>

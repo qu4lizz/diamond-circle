@@ -1,12 +1,9 @@
 package simulation;
 
 import gui.Main;
-import gui.Simulation;
 import javafx.application.Platform;
-
 import java.util.Date;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ExecutionTime implements Runnable {
     private long executionTime;

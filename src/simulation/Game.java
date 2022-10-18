@@ -102,15 +102,7 @@ public class Game implements Runnable {
 
         while (!playersTmp.isEmpty()) {
             for (int i = 0; i < playersTmp.size(); i++) {
-                synchronized (pauseLock) {
-                    if (paused) {
-                        try {
-                            pauseLock.wait();
-                        } catch (InterruptedException e) {
-                            Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
-                        }
-                    }
-                }
+                checkAndPause();
                 Player player = playersTmp.get(i);
                 Card currCard = deck.getDeck().get(0);
                 deck.getDeck().removeFirst();
@@ -131,13 +123,7 @@ public class Game implements Runnable {
                                 currInfo.start();
                                 startCurrInfoThread = false;
                             }
-                            synchronized (pauseLock) {
-                                try {
-                                    pauseLock.wait();
-                                } catch (InterruptedException e) {
-                                    Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
-                                }
-                            }
+                            checkAndPause();
                             try {
                                 figure.move(cardVal);
                             } catch (InterruptedException e) {
@@ -159,13 +145,7 @@ public class Game implements Runnable {
                             currInfo.start();
                             startCurrInfoThread = false;
                         }
-                        synchronized (pauseLock) {
-                            try {
-                                pauseLock.wait();
-                            } catch (InterruptedException e) {
-                                Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
-                            }
-                        }
+                        checkAndPause();
                         for (var hole : holes) {
                             Object obj = GameMap.map[hole.second][hole.first];
                             if (obj instanceof WalkingFigure || obj instanceof RunningFigure) {
@@ -201,6 +181,18 @@ public class Game implements Runnable {
             Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
         }
 
+    }
+
+    private void checkAndPause() {
+        synchronized (pauseLock) {
+            if (paused) {
+                try {
+                    pauseLock.wait();
+                } catch (InterruptedException e) {
+                    Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
+                }
+            }
+        }
     }
 
     private void appendInfo(Player player, int position) {

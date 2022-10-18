@@ -71,15 +71,7 @@ public class CurrentPlay implements Runnable {
     @Override
     public void run() {
         while (!Game.isGameOver()) {
-            synchronized (pauseLock) {
-                if (paused) {
-                    try {
-                        pauseLock.wait();
-                    } catch (InterruptedException e) {
-                        Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
-                    }
-                }
-            }
+            checkAndPause();
             try {
                 if (infoChanged) {
                     synchronized (lock) {
@@ -99,9 +91,22 @@ public class CurrentPlay implements Runnable {
                     infoChanged = false;
                 }
                 Thread.sleep(Game.TIME_FOR_RELOAD);
+                checkAndPause();
             }
             catch (InterruptedException e) {
                 Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
+            }
+        }
+    }
+
+    private void checkAndPause() {
+        synchronized (pauseLock) {
+            if (paused) {
+                try {
+                    pauseLock.wait();
+                } catch (InterruptedException e) {
+                    Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
+                }
             }
         }
     }

@@ -7,11 +7,9 @@ import map.GameMap;
 import simulation.Game;
 import utils.Pair;
 import utils.Utils;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public abstract class PlayerFigure extends Figure {
     public enum Color {
@@ -23,7 +21,7 @@ public abstract class PlayerFigure extends Figure {
     private String color;
     private ArrayList<Pair<Integer, Integer>> path;
     private int movementState; // default - haven't started yet, 0 - still going, 1 - finished, 2 - fell into hole
-    private int movementTime = 0;
+    private int movementTime;
     private Pair<Integer, Integer> toField;
     protected int step = 1;
 
@@ -93,18 +91,11 @@ public abstract class PlayerFigure extends Figure {
             }
         }
         for (int i = 0; i < moveVal; i++) {
-            synchronized (Game.getPauseLock()) {
-                if (Game.isPaused()) {
-                    try {
-                        Game.getPauseLock().wait();
-                    } catch (InterruptedException e) {
-                        Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
-                    }
-                }
-            }
+            checkAndPause();
             synchronized (GameMap.lock) {
                 long start = new Date().getTime();
                 Thread.sleep(TIME_FOR_STEP);
+                checkAndPause();
                 GameMap.map[path.get(path.size() - 1).second][path.get(path.size() - 1).first] = null;
                 moveOneStep();
                 Object objectOnField = null;
@@ -114,7 +105,9 @@ public abstract class PlayerFigure extends Figure {
                     objectOnField = GameMap.map[fieldToStep.second][fieldToStep.first];
                     if (objectOnField instanceof PlayerFigure) {
                         Platform.runLater(() -> Game.getSimulation().moveFigureOnMapGrid(this));
+                        checkAndPause();
                         Thread.sleep(TIME_FOR_STEP);
+                        checkAndPause();
                         moveOneStep();
                         i++;
                     } else break;
@@ -135,6 +128,18 @@ public abstract class PlayerFigure extends Figure {
                 GameMap.map[getCurrentField().second][getCurrentField().first] = this;
                 Platform.runLater(() -> Game.getSimulation().moveFigureOnMapGrid(this));
                 movementTime += new Date().getTime() - start;
+            }
+        }
+    }
+
+    private void checkAndPause() {
+        synchronized (Game.getPauseLock()) {
+            if (Game.isPaused()) {
+                try {
+                    Game.getPauseLock().wait();
+                } catch (InterruptedException e) {
+                    Main.logger.log(Level.WARNING, e.fillInStackTrace().toString());
+                }
             }
         }
     }
