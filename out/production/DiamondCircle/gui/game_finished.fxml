@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #5C3D2E;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameFinished">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #5C3D2E;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameFinished">
    <children>
       <VBox alignment="CENTER" layoutY="76.0" prefHeight="185.0" prefWidth="600.0" AnchorPane.bottomAnchor="139.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="76.0">
          <children>
@@ -43,7 +43,7 @@
       </Label>
       <Button fx:id="exitButton" alignment="CENTER" layoutX="205.0" layoutY="273.0" mnemonicParsing="false" onMouseClicked="#exitOnMouseClicked" prefHeight="86.0" prefWidth="190.0" stylesheets="@../../../../resources/css/button.css" text="Exit" textAlignment="CENTER" textFill="#e0c097">
          <font>
-            <Font name="JetBrains Mono Extra Bold Nerd Font Complete" size="25.0" />
+            <Font name="JetBrains Mono Bold Nerd Font Complete" size="25.0" />
          </font>
       </Button>
    </children>

@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Simulation">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Simulation">
    <children>
       <SplitPane dividerPositions="0.15" layoutX="256.0" layoutY="147.0" orientation="VERTICAL" prefHeight="800.0" prefWidth="1280.0" stylesheets="@../../../../resources/css/splitpaneV.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -44,16 +44,16 @@
                                                    <children>
                                                       <Label alignment="CENTER" prefHeight="104.72408925335546" prefWidth="464.7754818291775" text="Diamond Circle" textAlignment="CENTER" textFill="#b85c38" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <font>
-                                                            <Font name="JetBrains Mono Extra Bold Nerd Font Complete" size="55.0" />
+                                                            <Font name="JetBrains Mono Light Nerd Font Complete" size="55.0" />
                                                          </font>
                                                       </Label>
                                                    </children>
                                                 </AnchorPane>
                                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="317.0" style="-fx-background-color: #5C3D2E;">
                                                    <children>
-                                                      <ToggleButton fx:id="startPauseToggleButton" layoutX="40.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#startPauseOnMouseClicked" prefHeight="65.0" prefWidth="353.0" stylesheets="@../../../../resources/css/button.css" text="Start / Pause" textAlignment="CENTER" textFill="#e0c097" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0">
+                                                      <ToggleButton fx:id="startPauseToggleButton" layoutX="40.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#startPauseOnMouseClicked" prefHeight="59.0" prefWidth="245.0" stylesheets="@../../../../resources/css/button.css" text="Start / Pause" textAlignment="CENTER" textFill="#e0c097" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="15.0">
                                                          <font>
-                                                            <Font name="JetBrains Mono Extra Bold Nerd Font Complete" size="22.0" />
+                                                            <Font name="JetBrains Mono Bold Nerd Font Complete" size="23.0" />
                                                          </font>
                                                       </ToggleButton>
                                                    </children>
@@ -1863,7 +1863,7 @@
                                                    <children>
                                                       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#listOfFilesOnMouseClicked" prefHeight="78.0" prefWidth="293.0" stylesheets="@../../../../resources/css/button.css" text="Show list of files with results" textAlignment="CENTER" textFill="#e0c097" wrapText="true" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="15.0">
                                                          <font>
-                                                            <Font name="JetBrains Mono Extra Bold Nerd Font Complete" size="22.0" />
+                                                            <Font name="JetBrains Mono Bold Nerd Font Complete" size="22.0" />
                                                          </font>
                                                       </Button>
                                                    </children>
