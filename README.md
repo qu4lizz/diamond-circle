@@ -2,7 +2,7 @@
 
 A simulation of a 2-4 player board card game
 
-![Alt text](resources/images/icon.png?raw=true "Diamond circle icon")
+<img src="resources/images/icon.png" alt="Diamond circle icon" width="50"/>
 
 ## Description
 
