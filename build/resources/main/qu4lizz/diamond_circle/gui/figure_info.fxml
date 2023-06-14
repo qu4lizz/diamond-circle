@@ -1,0 +1,1592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #5C3D2E;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qu4lizz.diamond_circle.gui.FigureInfo">
+    <children>
+                        <GridPane fx:id="grid7x7" alignment="CENTER" gridLinesVisible="true" layoutX="26.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #e0c097;" visible="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="1" textAlignment="CENTER" textFill="#b85c38">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="2" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="3" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="4" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="5" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="6" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="7" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="8" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="9" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="10" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="11" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="12" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="13" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="14" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="15" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="16" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="17" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="18" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="19" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="20" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="21" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="22" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="23" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="24" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="25" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="26" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="27" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="28" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="29" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="30" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="31" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="32" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="33" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="34" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="35" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="36" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="37" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="38" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="39" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="40" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="41" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="42" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="43" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="44" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="45" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="46" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="47" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="48" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="49" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </GridPane>
+                        <GridPane fx:id="grid8x8" alignment="CENTER" gridLinesVisible="true" layoutX="27.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #e0c097;" visible="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="1" textAlignment="CENTER" textFill="#b85c38">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="2" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="3" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="4" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="5" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="6" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="7" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="8" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="9" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="10" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="11" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="12" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="13" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="14" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="15" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="16" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="17" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="18" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="19" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="20" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="21" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="22" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="23" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="24" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="25" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="26" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="27" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="28" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="29" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="30" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="31" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="32" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="33" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="34" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="35" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="36" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="37" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="38" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="39" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="40" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="41" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="42" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="43" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="44" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="45" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="46" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="47" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="48" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="49" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="50" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="51" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="52" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="53" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="54" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="55" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="56" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="57" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="58" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="59" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="60" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="61" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="62" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="63" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="64" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </GridPane>
+                        <GridPane fx:id="grid9x9" alignment="CENTER" gridLinesVisible="true" layoutX="27.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #e0c097;" visible="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="1" textAlignment="CENTER" textFill="#b85c38">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="2" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="3" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="4" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="5" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="6" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="7" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="8" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="9" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="10" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="11" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="12" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="13" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="14" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="15" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="16" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="17" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="18" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="19" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="20" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="21" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="22" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="23" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="24" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="25" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="26" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="27" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="28" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="29" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="30" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="31" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="32" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="33" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="34" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="35" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="36" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="37" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="38" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="39" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="40" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="41" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="42" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="43" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="44" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="45" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="46" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="47" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="48" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="49" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="50" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="51" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="52" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="53" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="54" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="55" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="56" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="57" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="58" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="59" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="60" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="61" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="62" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="63" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="64" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="65" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="66" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="67" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="68" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="69" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="70" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="71" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="72" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="73" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="74" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="75" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="76" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="77" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="78" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="79" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="80" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="81" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </GridPane>
+                        <GridPane fx:id="grid10x10" alignment="CENTER" gridLinesVisible="true" layoutX="27.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #e0c097;" visible="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="1" textAlignment="CENTER" textFill="#b85c38">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="2" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="3" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="4" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="5" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="6" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="7" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="8" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="9" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="10" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="9">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="93" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="12" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="13" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="14" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="15" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="16" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="17" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="18" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="19" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="20" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="9" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="21" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="22" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="23" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="24" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="25" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="26" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="27" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="28" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="29" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="30" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="9" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="31" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="32" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="33" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="34" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="35" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="36" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="37" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="38" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="39" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="40" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="9" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="41" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="42" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="43" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="44" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="45" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="46" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="47" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="48" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="49" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="50" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="9" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="51" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="52" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="53" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="54" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="55" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="56" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="57" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="58" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="59" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="60" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="9" GridPane.rowIndex="5">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="61" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="62" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="63" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="64" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="65" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="66" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="67" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="68" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="69" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="70" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="9" GridPane.rowIndex="6">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="71" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="72" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="73" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="74" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="75" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="76" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="77" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="78" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="79" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="80" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="9" GridPane.rowIndex="7">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="81" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="82" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="83" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="84" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="85" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="86" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="87" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="88" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="89" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="90" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="9" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="91" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="9">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="92" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="94" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #373737;" text="11" textAlignment="CENTER" textFill="#b85c38" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="74.0" style="-fx-background-color: #969696;" text="95" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="4" GridPane.rowIndex="9">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #969696;" text="96" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="5" GridPane.rowIndex="9">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="97" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="6" GridPane.rowIndex="9">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="98" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="7" GridPane.rowIndex="9">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="99" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="8" GridPane.rowIndex="9">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="139.0" prefWidth="152.0" style="-fx-background-color: #373737;" text="100" textAlignment="CENTER" textFill="#b85c38" GridPane.columnIndex="9" GridPane.rowIndex="9">
+                                    <font>
+                                        <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </GridPane>
+      <Label fx:id="title" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="93.0" prefWidth="457.0" style="-fx-background-color: #2D2424;" text="Label" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="JetBrains Mono Medium Nerd Font Complete Mono" size="16.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" right="10.0" top="5.0" />
+         </padding>
+      </Label>
+    </children>
+</AnchorPane>

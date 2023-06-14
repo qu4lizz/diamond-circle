@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #2D2424;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qu4lizz.diamond_circle.gui.FilesList">
+   <children>
+      <ListView fx:id="listView" layoutX="80.0" layoutY="67.0" prefHeight="451.0" prefWidth="640.0" style="-fx-background-color: #5C3D2E;" stylesheets="@css/listview.css" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="80.0" />
+   </children>
+</AnchorPane>
